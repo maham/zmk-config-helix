@@ -40,11 +40,11 @@ As such, those are in use within the default layer at this time.*/
                      // |  SHIFT |   Z    |   X    |   C    |   V    |   B    |  LBKT  |                    |  RBKT  |   N    |   M    |   ,    |   .    |   /    |  RET   |
                      // | ADJUST |  ESC   |  ALT   |  LGUI  | EISUU  | LOWER  | SPACE  |                    |  SPACE | RAISE  |  KANA  |  LEFT  |  DOWN  |  UP    |  RIGHT |
                      bindings = <
-                     &kp GRAVE  &kp N1  &kp N2   &kp N3   &kp N4    &kp N5                               &kp N6    &kp N7    &kp N8    &kp N9     &kp N0    &kp DEL
-                     &kp TAB    &kp Q   &kp W    &kp E    &kp R     &kp T                                &kp Y     &kp U     &kp I     &kp O      &kp P     &kp BSPC
-                     &kp LCTRL  &kp A   &kp S    &kp D    &kp F     &kp G                                &kp H     &kp J     &kp K     &kp L      &kp SEMI  &kp SQT
-                     &kp LSHFT  &kp Z   &kp X    &kp C    &kp V     &kp B     &kp LBKT         &kp RBKT  &kp N     &kp M     &kp COMMA &kp PERIOD &kp SLASH &kp RET
-                     &mo ADJUST &kp ESC &kp LALT &kp LGUI &kp LANG2 &mo LOWER &kp SPACE        &kp SPACE &mo RAISE &kp LANG1 &kp LEFT  &kp DOWN   &kp UP    &kp RIGHT
+                     &none      &kp F1  &kp F2   &kp F3     &kp F4    &kp F5                               &kp F6    &kp F7    &kp F8     &kp F9     &kp F10   &none
+                     &kp TAB    &kp Q   &kp W    &kp E      &kp R     &kp T                                &kp Y     &kp U     &kp I      &kp O      &kp P     &kp LBRC
+                     &kp LCTRL  &kp A   &kp S    &kp D      &kp F     &kp G                                &kp H     &kp J     &kp K      &kp L      &kp SEMI  &kp SQT
+                     &none      &kp Z   &kp X    &kp C      &kp V     &kp B     &none            &none     &kp N     &kp M     &kp COMMA  &kp PERIOD &kp SLASH &kp NUHS
+                     &kp LSHFT  &none   &none    &mo ADJUST &mo LOWER &kp SPACE &none            &none     &kp SPACE &mo RAISE &mo ADJUST &none      &none     &kp RSHFT
                      >;
               };
               lower_layer {
@@ -55,9 +55,9 @@ As such, those are in use within the default layer at this time.*/
                      // |      |      |      |      |      |      |  (   |                    |  )   |      |      |      | HOME | END  |      |
                      // |      |      |      |      |      |      |      |                    |      |      |      |      |      |      |      |
                      bindings = <
-                     &trans    &trans   &trans &trans   &trans   &trans                             &trans    &trans    &trans    &trans   &trans   &trans
-                     &kp TILDE &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT                          &kp CARET &kp AMPS  &kp ASTRK &kp LPAR &kp RPAR &trans
-                     &trans    &trans   &trans &trans   &trans   &trans                             &trans    &kp UNDER &kp PLUS  &kp LBRC &kp RBRC &kp PIPE
+                     &trans    &kp F1   &kp F2 &kp F3   &kp F4   &kp F5                             &kp F6    &kp F7    &kp F8    &kp F9   &kp F10  &trans
+                     &trans    &kp N1   &kp N2 &kp N3   &kp N4   &kp N5                             &kp N6    &kp N7    &kp N8    &kp N9   &kp N0   &kp MINUS
+                     &trans    &trans   &kp LEFT &kp UP   &kp DOWN   &kp RIGHT                      &kp LS(N6) &kp LS(N7) &kp LS(N8)  &kp LS(N9) &kp LS(N0) &kp LS(MINUS)
                      &trans    &trans   &trans &trans   &trans   &trans    &kp LPAR        &kp RPAR &trans    &trans    &trans    &kp HOME &kp END  &trans
                      &trans    &trans   &trans &trans   &trans   &trans    &trans          &trans   &trans    &trans    &trans    &trans   &trans   &trans
                      >;
@@ -94,3 +94,33 @@ As such, those are in use within the default layer at this time.*/
               };
        };
 };
+
+/ {
+  combos {
+    compatible = "zmk,combos";
+    combo_esc {
+      timeout-ms = <50>;
+      key-positions = <S D F>;
+      bindings = <&kp ESC>;
+    };
+
+    combo_ret {
+      timeout-ms = <50>;
+      key-positions = <45 46>;
+      bindings = <&kp RET>;
+    };
+
+    combo_tab {
+      timeout-ms = <50>;
+      key-positions = <15 16>;
+      bindings = <&kp TAB>;
+    };
+
+    combo_bspc {
+      timeout-ms = <50>;
+      key-positions = <14 15>;
+      bindings = <&kp BSPC>;
+    };
+  };
+};
+
