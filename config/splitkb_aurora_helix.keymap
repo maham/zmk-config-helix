@@ -18,81 +18,87 @@
 
 /* Uncomment this block if using RGB
 &led_strip {
-       chain-length = <6>;
+       // chain-length = <6>;
        // chain-length = <38>; // Uncomment if using both per-key and underglow LEDs
        // chain-length = <32>; // Uncomment if using only per-key LEDs.
 };
- */
+*/
 
 /* NOTE: At the time of the creation of this keymap, there are no specified codes for 'eisuu' and 'kana' input in ZMK.
 However, 'LANG1' and 'LANG2' are fully-functioning candidates for 'kana' and 'eisuu' input respectively.
 As such, those are in use within the default layer at this time.*/
+&soft_off {
+  hold-time-ms = <3000>;
+};
 
 / {
-       keymap {
-              compatible = "zmk,keymap";
+  keymap {
+    compatible = "zmk,keymap";
 
-              default_layer {
-                     // ---------------------------------------------------------------------------------------------------------------------------------
-                     // | GRAVE  |   1    |   2    |   3    |   4    |   5    |                                      |   6    |   7    |   8    |   9    |   0    |  DEL   |
-                     // |  TAB   |   Q    |   W    |   E    |   R    |   T    |                                      |   Y    |   U    |   I    |   O    |   P    |  BSPC  |
-                     // |  CTRL  |   A    |   S    |   D    |   F    |   G    |                                      |   H    |   J    |   K    |   L    |   ;    |   '    |
-                     // |  SHIFT |   Z    |   X    |   C    |   V    |   B    |  LBKT  |                    |  RBKT  |   N    |   M    |   ,    |   .    |   /    |  RET   |
-                     // | ADJUST |  ESC   |  ALT   |  LGUI  | EISUU  | LOWER  | SPACE  |                    |  SPACE | RAISE  |  KANA  |  LEFT  |  DOWN  |  UP    |  RIGHT |
-                     bindings = <
-                     &none      &kp F1  &kp F2   &kp F3     &kp F4    &kp F5                               &kp F6    &kp F7    &kp F8     &kp F9     &kp F10   &none
-                     &kp TAB    &kp Q   &kp W    &kp E      &kp R     &kp T                                &kp Y     &kp U     &kp I      &kp O      &kp P     &kp LBRC
-                     &kp LCTRL  &kp A   &kp S    &kp D      &kp F     &kp G                                &kp H     &kp J     &kp K      &kp L      &kp SEMI  &kp SQT
-                     &none      &kp Z   &kp X    &kp C      &kp V     &kp B     &none            &none     &kp N     &kp M     &kp COMMA  &kp PERIOD &kp SLASH &kp NUHS
-                     &kp LSHIFT &none   &none    &mo ADJUST &mo LOWER &kp SPACE &none            &none     &kp SPACE &mo RAISE &mo ADJUST &none      &none     &kp RSHIFT
-                     >;
-              };
-              lower_layer {
-                     // ---------------------------------------------------------------------------------------------------------------------------------
-                     // |      |      |      |      |      |      |                                  |      |      |      |      |      |      |
-                     // |  ~   |  !   |  @   |  #   |  $   |  %   |                                  |  ^   |  &   |  *   |  (   |  )   |      |
-                     // |      |      |      |      |      |      |                                  |      |  _   |  +   |  {   |  }   | PIPE |
-                     // |      |      |      |      |      |      |  (   |                    |  )   |      |      |      | HOME | END  |      |
-                     // |      |      |      |      |      |      |      |                    |      |      |      |      |      |      |      |
-                     bindings = <
-                     &trans    &kp F1   &kp F2   &kp F3   &kp F4     &kp F5                             &kp F6     &kp F7     &kp F8      &kp F9     &kp F10    &trans
-                     &trans    &kp N1   &kp N2   &kp N3   &kp N4     &kp N5                             &kp N6     &kp N7     &kp N8      &kp N9     &kp N0     &kp MINUS
-                     &trans    &trans   &kp LEFT &kp UP   &kp DOWN   &kp RIGHT                          &kp LS(N6) &kp LS(N7) &kp LS(N8)  &kp LS(N9) &kp LS(N0) &kp LS(MINUS)
-                     &trans    &trans   &trans   &kp PGUP &kp PGDN   &trans    &none           &none    &kp LA(N6) &kp LA(N7) &kp LA(N8)  &kp LA(N9) &kp LA(N0) &trans
-                     &trans    &trans   &trans   &trans   &trans     &trans    &trans          &trans   &trans     &trans     &trans      &trans     &trans     &trans
-                     >;
-              };
-              raise_layer {
-                     // ---------------------------------------------------------------------------------------------------------------------------------
-                     // |       |       |       |       |       |       |                                    |       |       |       |       |       |       |
-                     // |   `   |   1   |   2   |   3   |   4   |   5   |                                    |   6   |   7   |   8   |   9   |   0   |  DEL  |
-                     // |       |  F1   |  F2   |  F3   |  F4   |  F5   |                                    |  F6   |   -   |   =   |   [   |   ]   |   \   |
-                     // |       |  F7   |  F8   |  F9   |  F10  |  F11  |       |                    |       |  F12  |       | PSCRN | PG_DN | PG_UP |       |
-                     // |       |       |       |       |       |       |       |                    |       |       |       | NEXT  | VOL-  | VOL+  | PLAY  |
-                     bindings = <
-                     &trans    &trans &trans &trans &trans  &trans                       &trans  &trans    &trans     &trans       &trans       &trans
-                     &kp GRAVE &kp N1 &kp N2 &kp N3 &kp N4  &kp N5                       &kp N6  &kp N7    &kp N8     &kp N9       &kp N0       &kp DEL
-                     &trans    &kp F1 &kp F2 &kp F3 &kp F4  &kp F5                       &kp F6  &kp MINUS &kp EQUAL  &kp LBKT     &kp RBKT     &kp BSLH
-                     &trans    &kp F7 &kp F8 &kp F9 &kp F10 &kp F11 &trans        &trans &kp F12 &trans    &kp PSCRN  &kp PG_DN    &kp PG_UP    &trans
-                     &trans    &trans &trans &trans &trans  &trans  &trans        &trans &trans  &trans    &kp C_NEXT &kp C_VOL_DN &kp C_VOL_UP &kp C_PP
-                     >;
-              };
-              adjust_layer {
-                     // ---------------------------------------------------------------------------------------------------------------------------------
-                     // |    `     |    !     |    @     |    #     |    $     |    %     |                                          |    ^     |    &     |    *     |    (     |    )     |  EP TOG  |
-                     // |  BT CLR  | BT SEL0  | BT SEL1  | BT SEL2  | BGT SEL3 | BT SEL4  |                                          | RGB EFF+ | RGB HUE+ | RGB SAT+ | RGB SPD+ | RGB BRI+ | RGB TOG  |
-                     // |  BT NXT  | OUT TOG  | OUT USB  | OUT BLE  |          |          |                                          | RGB EFF- | RGB HUE- | RGB SAT- | RGB SPD- | RGB BRI- |          |
-                     // |  BT PRV  |          |          |          |          |          |    {     |                    |    }     |          |          |          |          |          |          |
-                     // |          |          |          |          |          |          |          |                    |          |          |          |          |          |          |          |
-                     bindings = <
-                     &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4                          &kp CARET       &kp AMPS        &kp ASTRK       &kp LPAR        &kp RPAR        &ext_power EP_TOG
-                     &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4                          &rgb_ug RGB_EFF &rgb_ug RGB_HUI &rgb_ug RGB_SAI &rgb_ug RGB_SPI &rgb_ug RGB_BRI &rgb_ug RGB_TOG
-                     &bt BT_NXT &out OUT_TOG &out OUT_USB &out OUT_BLE &trans       &trans                                &rgb_ug RGB_EFR &rgb_ug RGB_HUD &rgb_ug RGB_SAD &rgb_ug RGB_SPD &rgb_ug RGB_BRD &trans
-                     &bt BT_PRV &trans       &trans       &trans       &trans       &trans       &kp LBRC        &kp RBRC &trans          &trans          &trans          &trans          &trans          &trans
-                     &trans     &trans       &trans       &trans       &trans       &trans       &trans          &trans   &trans          &trans          &trans          &trans          &trans          &trans
-                     >;
-              };
-       };
+    default_layer {
+           // ---------------------------------------------------------------------------------------------------------------------------------
+           // | GRAVE  |   1    |   2    |   3    |   4    |   5    |                                      |   6    |   7    |   8    |   9    |   0    |  DEL   |
+           // |  TAB   |   Q    |   W    |   E    |   R    |   T    |                                      |   Y    |   U    |   I    |   O    |   P    |  BSPC  |
+           // |  CTRL  |   A    |   S    |   D    |   F    |   G    |                                      |   H    |   J    |   K    |   L    |   ;    |   '    |
+           // |  SHIFT |   Z    |   X    |   C    |   V    |   B    |  LBKT  |                    |  RBKT  |   N    |   M    |   ,    |   .    |   /    |  RET   |
+           // | ADJUST |  ESC   |  ALT   |  LGUI  | EISUU  | LOWER  | SPACE  |                    |  SPACE | RAISE  |  KANA  |  LEFT  |  DOWN  |  UP    |  RIGHT |
+           bindings = <
+           &none       &kp F1      &kp F2      &kp F3      &kp F4      &kp F5                                 &kp F6    &kp F7    &kp F8     &kp F9     &kp F10   &soft_off
+           &kp TAB     &kp Q       &kp W       &kp E       &kp R       &kp T                                  &kp Y     &kp U     &kp I      &kp O      &kp P     &kp LBKT
+           &kp LCTRL   &kp A       &kp S       &kp D       &kp F       &kp G                                  &kp H     &kp J     &kp K      &kp L      &kp SEMI  &kp SQT
+           &none       &kp Z       &kp X       &kp C       &kp V       &kp B       &none            &none     &kp N     &kp M     &kp COMMA  &kp PERIOD &kp SLASH &kp NUHS
+           &kp LSHIFT  &none       &none       &mo ADJUST  &mo LOWER   &kp SPACE   &none            &none     &kp SPACE &mo RAISE &mo ADJUST &none      &none     &kp RSHIFT
+           >;
+    };
+
+    lower_layer {
+           // ---------------------------------------------------------------------------------------------------------------------------------
+           // |      |      |      |      |      |      |                                  |      |      |      |      |      |      |
+           // |  ~   |  !   |  @   |  #   |  $   |  %   |                                  |  ^   |  &   |  *   |  (   |  )   |      |
+           // |      |      |      |      |      |      |                                  |      |  _   |  +   |  {   |  }   | PIPE |
+           // |      |      |      |      |      |      |  (   |                    |  )   |      |      |      | HOME | END  |      |
+           // |      |      |      |      |      |      |      |                    |      |      |      |      |      |      |      |
+           bindings = <
+           &none    &kp F1   &kp F2   &kp F3   &kp F4     &kp F5                             &kp F6     &kp F7     &kp F8      &kp F9     &kp F10    &none
+           &none    &kp N1   &kp N2   &kp N3   &kp N4     &kp N5                             &kp N6     &kp N7     &kp N8      &kp N9     &kp N0     &kp MINUS
+           &none    &none   &kp LEFT &kp UP   &kp DOWN   &kp RIGHT                          &kp LS(N6) &kp LS(N7) &kp LS(N8)  &kp LS(N9) &kp LS(N0) &kp LS(MINUS)
+           &none    &none   &none   &kp PGUP &kp PGDN   &none    &none           &none    &kp LA(N6) &kp LA(N7) &kp LA(N8)  &kp LA(N9) &kp LA(N0) &none
+           &none    &none   &none   &none   &none     &none    &none          &none   &none     &none     &none      &none     &none     &none
+           >;
+    };
+
+    raise_layer {
+           // ---------------------------------------------------------------------------------------------------------------------------------
+           // |       |       |       |       |       |       |                                    |       |       |       |       |       |       |
+           // |   `   |   1   |   2   |   3   |   4   |   5   |                                    |   6   |   7   |   8   |   9   |   0   |  DEL  |
+           // |       |  F1   |  F2   |  F3   |  F4   |  F5   |                                    |  F6   |   -   |   =   |   [   |   ]   |   \   |
+           // |       |  F7   |  F8   |  F9   |  F10  |  F11  |       |                    |       |  F12  |       | PSCRN | PG_DN | PG_UP |       |
+           // |       |       |       |       |       |       |       |                    |       |       |       | NEXT  | VOL-  | VOL+  | PLAY  |
+           bindings = <
+           &none    &kp F1   &kp F2   &kp F3   &kp F4     &kp F5                             &kp F6     &kp F7     &kp F8      &kp F9     &kp F10    &none
+           &kp GRAVE &kp N1 &kp N2 &kp N3 &kp N4  &kp N5                       &kp N6  &kp N7    &kp N8     &kp N9       &kp N0       &kp DEL
+           &none    &kp LS(N1) &kp LS(N2) &kp LS(N3) &kp LS(N4)  &kp LS(N5)                       &kp LEFT  &kp DOWN &kp UP  &kp RIGHT     &none     &none
+           &none    &kp LA(N1) &kp LA(N2) &kp LA(N3) &kp LA(N4) &kp LA(N5) &none        &none &kp F12 &none    &kp PSCRN  &kp PG_DN    &kp PG_UP    &none
+           &kp LBRC    &none &none &none &none  &none  &none        &none &none  &none    &kp C_NEXT &kp C_VOL_DN &kp C_VOL_UP &kp C_PP
+           >;
+    };
+    
+    adjust_layer {
+           // ---------------------------------------------------------------------------------------------------------------------------------
+           // |    `     |    !     |    @     |    #     |    $     |    %     |                                          |    ^     |    &     |    *     |    (     |    )     |  EP TOG  |
+           // |  BT CLR  | BT SEL0  | BT SEL1  | BT SEL2  | BGT SEL3 | BT SEL4  |                                          | RGB EFF+ | RGB HUE+ | RGB SAT+ | RGB SPD+ | RGB BRI+ | RGB TOG  |
+           // |  BT NXT  | OUT TOG  | OUT USB  | OUT BLE  |          |          |                                          | RGB EFF- | RGB HUE- | RGB SAT- | RGB SPD- | RGB BRI- |          |
+           // |  BT PRV  |          |          |          |          |          |    {     |                    |    }     |          |          |          |          |          |          |
+           // |          |          |          |          |          |          |          |                    |          |          |          |          |          |          |          |
+           bindings = <
+           &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4                          &kp CARET       &kp AMPS        &kp ASTRK       &kp LPAR        &kp RPAR        &ext_power EP_TOG
+           &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4                          &rgb_ug RGB_EFF &rgb_ug RGB_HUI &rgb_ug RGB_SAI &rgb_ug RGB_SPI &rgb_ug RGB_BRI &rgb_ug RGB_TOG
+           &bt BT_NXT &out OUT_TOG &out OUT_USB &out OUT_BLE &none       &none                                &rgb_ug RGB_EFR &rgb_ug RGB_HUD &rgb_ug RGB_SAD &rgb_ug RGB_SPD &rgb_ug RGB_BRD &none
+           &bt BT_PRV &none       &none       &none       &none       &none       &kp LBRC        &kp RBRC &none          &none          &none          &none          &none          &none
+           &none     &none       &none       &none       &none       &none       &none          &none   &none          &none          &none          &none          &none          &none
+           >;
+    };
+  };
 };
 
 / {
@@ -237,76 +243,76 @@ As such, those are in use within the default layer at this time.*/
     };
 
     combo_equal {
-      timeout-ms = <100>;
+      timeout-ms = <200>;
       key-positions = <28 29 30 31>;
-      bindings = <&equal_macro>;
+      bindings = <&m_equal>;
     };
 
     combo_equality {
       timeout-ms = <50>;
       key-positions = <29 30>;
-      bindings = <&equality_macro>;
+      bindings = <&m_equality>;
     };
 
     combo_nonequality {
       timeout-ms = <50>;
       key-positions = <28 31>;
-      bindings = <&nonequality_macro>;
+      bindings = <&m_nonequality>;
     };
 
     combo_final {
-      timeout-ms = <100>;
+      timeout-ms = <200>;
       key-positions = <28 20 44>;
-      bindings = <&final_macro>;
+      bindings = <&m_final>;
     };
 
     combo_return {
-      timeout-ms = <100>;
+      timeout-ms = <200>;
       key-positions = <16 17 44>;
-      bindings = <&return_macro>;
+      bindings = <&m_return>;
     };
 
     combo_required {
-      timeout-ms = <100>;
+      timeout-ms = <200>;
       key-positions = <13 16 20>;
-      bindings = <&required_macro>;
+      bindings = <&m_required>;
     };
   };
 };
 
 / {
     macros {
-      ZMK_MACRO(equal_macro,
+      ZMK_MACRO(m_equal,
           wait-ms = <30>;
           tap-ms = <40>;
           bindings = <&kp LS(N0) &kp SPACE>;
       )
 
-      ZMK_MACRO(equality_macro,
+      ZMK_MACRO(m_equality,
           wait-ms = <30>;
           tap-ms = <40>;
           bindings = <&kp LS(N0) &kp LS(N0) &kp SPACE>;
       )
 
-      ZMK_MACRO(nonequality_macro,
+      ZMK_MACRO(m_nonequality,
           wait-ms = <30>;
           tap-ms = <40>;
           bindings = <&kp LS(N1) &kp LS(N0) &kp SPACE>;
       )
 
-      ZMK_MACRO(final_macro,
+      ZMK_MACRO(m_final,
           wait-ms = <30>;
           tap-ms = <40>;
           bindings = <&kp F &kp I &kp N &kp A &kp L &kp SPACE>;
       )
 
-      ZMK_MACRO(return_macro,
+      ZMK_MACRO(m_return,
           wait-ms = <30>;
           tap-ms = <40>;
           bindings = <&kp R &kp E &kp T &kp U &kp R &kp N &kp SPACE>;
       )
 
-      ZMK_MACRO(required_macro,
+      ZMK_MACRO(m_required,
           wait-ms = <30>;
           tap-ms = <40>;
           bindings = <&kp R &kp E &kp Q &kp U &kp I &kp R &kp E &kp D &kp SPACE>;
