@@ -44,7 +44,7 @@ As such, those are in use within the default layer at this time.*/
                      &kp TAB    &kp Q   &kp W    &kp E      &kp R     &kp T                                &kp Y     &kp U     &kp I      &kp O      &kp P     &kp LBRC
                      &kp LCTRL  &kp A   &kp S    &kp D      &kp F     &kp G                                &kp H     &kp J     &kp K      &kp L      &kp SEMI  &kp SQT
                      &none      &kp Z   &kp X    &kp C      &kp V     &kp B     &none            &none     &kp N     &kp M     &kp COMMA  &kp PERIOD &kp SLASH &kp NUHS
-                     &kp LSHFT  &none   &none    &mo ADJUST &mo LOWER &kp SPACE &none            &none     &kp SPACE &mo RAISE &mo ADJUST &none      &none     &kp RSHFT
+                     &kp LSHIFT &none   &none    &mo ADJUST &mo LOWER &kp SPACE &none            &none     &kp SPACE &mo RAISE &mo ADJUST &none      &none     &kp RSHIFT
                      >;
               };
               lower_layer {
@@ -100,27 +100,118 @@ As such, those are in use within the default layer at this time.*/
     compatible = "zmk,combos";
     combo_esc {
       timeout-ms = <50>;
-      key-positions = <S D F>;
+      key-positions = <26 27 28>;
       bindings = <&kp ESC>;
     };
 
     combo_ret {
       timeout-ms = <50>;
-      key-positions = <45 46>;
+      key-positions = <31 32>;
       bindings = <&kp RET>;
     };
 
     combo_tab {
       timeout-ms = <50>;
-      key-positions = <15 16>;
+      key-positions = <27 28>;
       bindings = <&kp TAB>;
     };
 
     combo_bspc {
       timeout-ms = <50>;
-      key-positions = <14 15>;
+      key-positions = <26 27>;
       bindings = <&kp BSPC>;
     };
+
+    combo_lctrl {
+      timeout-ms = <50>;
+      key-positions = <14 26>;
+      bindings = <&kp LCTRL>;
+    };
+
+    combo_rctrl {
+      timeout-ms = <50>;
+      key-positions = <21 33>;
+      bindings = <&kp RCTRL>;
+    };
+
+    combo_lalt {
+      timeout-ms = <50>;
+      key-positions = <15 27>;
+      bindings = <&kp LALT>;
+    };
+
+    combo_ralt {
+      timeout-ms = <50>;
+      key-positions = <20 32>;
+      bindings = <&kp RALT>;
+    };
+
+    combo_lgui {
+      timeout-ms = <50>;
+      key-positions = <16 28>;
+      bindings = <&kp LGUI>;
+    };
+
+    combo_rgui {
+      timeout-ms = <50>;
+      key-positions = <19 31>;
+      bindings = <&kp RGUI>;
+    };
+
+    combo_lparen {
+      timeout-ms = <50>;
+      key-positions = <15 16>;
+      bindings = <&kp LPAR>;
+    };
+
+    combo_rparen {
+      timeout-ms = <50>;
+      key-positions = <19 20>;
+      bindings = <&kp RPAR>;
+    };
+
+    combo_lbracket {
+      timeout-ms = <50>;
+      key-positions = <14 15>;
+      bindings = <&kp LBKT>;
+    };
+
+    combo_rbracket {
+      timeout-ms = <50>;
+      key-positions = <20 21>;
+      bindings = <&kp RBKT>;
+    };
+
+    combo_lbrace {
+      timeout-ms = <50>;
+      key-positions = <14 15 16>;
+      bindings = <&kp LBRC>;
+    };
+
+    combo_rbrace {
+      timeout-ms = <50>;
+      key-positions = <19 20 21>;
+      bindings = <&kp RBRC>;
+    };
+
+    combo_less {
+      timeout-ms = <50>;
+      key-positions = <14 16>;
+      bindings = <&kp LT>;
+    };
+
+    combo_greater {
+      timeout-ms = <50>;
+      key-positions = <19 21>;
+      bindings = <&kp GT>;
+    };
+
+    combo_swap {
+      timeout-ms = <50>;
+      key-positions = <20 21 32 33>;
+      bindings = <&kp GT>;
+    };
+
   };
 };
 
