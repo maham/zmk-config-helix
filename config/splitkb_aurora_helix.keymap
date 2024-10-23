@@ -59,7 +59,7 @@ As such, those are in use within the default layer at this time.*/
                      &trans    &kp N1   &kp N2   &kp N3   &kp N4     &kp N5                             &kp N6     &kp N7     &kp N8      &kp N9     &kp N0     &kp MINUS
                      &trans    &trans   &kp LEFT &kp UP   &kp DOWN   &kp RIGHT                          &kp LS(N6) &kp LS(N7) &kp LS(N8)  &kp LS(N9) &kp LS(N0) &kp LS(MINUS)
                      &trans    &trans   &trans   &kp PGUP &kp PGDN   &trans    &none           &none    &kp LA(N6) &kp LA(N7) &kp LA(N8)  &kp LA(N9) &kp LA(N0) &trans
-                     &kp LBKT    &kp RBKT   &kp LBRC   &kp RBRC   &kp NUHS     &kp TILDE    &kp TILDE2          &trans   &trans     &trans     &trans      &trans     &trans     &trans
+                     &trans    &trans   &trans   &trans   &trans     &trans    &trans          &trans   &trans     &trans     &trans      &trans     &trans     &trans
                      >;
               };
               raise_layer {
@@ -212,14 +212,12 @@ As such, those are in use within the default layer at this time.*/
       bindings = <&kp LG(TAB)>;
     };
 
-    // BORK
     combo_circ {
       timeout-ms = <50>;
       key-positions = <40 41>;
       bindings = <&kp LS(RBKT)>;
     };
 
-    // BORK
     combo_tild {
       timeout-ms = <50>;
       key-positions = <44 45>;
@@ -237,6 +235,81 @@ As such, those are in use within the default layer at this time.*/
       key-positions = <33 47>;
       bindings = <&kp LS(PERIOD)>;
     };
+
+    combo_equal {
+      timeout-ms = <100>;
+      key-positions = <28 29 30 31>;
+      bindings = <&equal_macro>;
+    };
+
+    combo_equality {
+      timeout-ms = <50>;
+      key-positions = <29 30>;
+      bindings = <&equality_macro>;
+    };
+
+    combo_nonequality {
+      timeout-ms = <50>;
+      key-positions = <28 31>;
+      bindings = <&nonequality_macro>;
+    };
+
+    combo_final {
+      timeout-ms = <100>;
+      key-positions = <28 20 44>;
+      bindings = <&final_macro>;
+    };
+
+    combo_return {
+      timeout-ms = <100>;
+      key-positions = <16 17 44>;
+      bindings = <&return_macro>;
+    };
+
+    combo_required {
+      timeout-ms = <100>;
+      key-positions = <13 16 20>;
+      bindings = <&required_macro>;
+    };
   };
 };
 
+/ {
+    macros {
+      ZMK_MACRO(equal_macro,
+          wait-ms = <30>;
+          tap-ms = <40>;
+          bindings = <&kp LS(N0) &kp SPACE>;
+      )
+
+      ZMK_MACRO(equality_macro,
+          wait-ms = <30>;
+          tap-ms = <40>;
+          bindings = <&kp LS(N0) &kp LS(N0) &kp SPACE>;
+      )
+
+      ZMK_MACRO(nonequality_macro,
+          wait-ms = <30>;
+          tap-ms = <40>;
+          bindings = <&kp LS(N1) &kp LS(N0) &kp SPACE>;
+      )
+
+      ZMK_MACRO(final_macro,
+          wait-ms = <30>;
+          tap-ms = <40>;
+          bindings = <&kp F &kp I &kp N &kp A &kp L &kp SPACE>;
+      )
+
+      ZMK_MACRO(return_macro,
+          wait-ms = <30>;
+          tap-ms = <40>;
+          bindings = <&kp R &kp E &kp T &kp U &kp R &kp N &kp SPACE>;
+      )
+
+      ZMK_MACRO(required_macro,
+          wait-ms = <30>;
+          tap-ms = <40>;
+          bindings = <&kp R &kp E &kp Q &kp U &kp I &kp R &kp E &kp D &kp SPACE>;
+      )
+    };
+};
