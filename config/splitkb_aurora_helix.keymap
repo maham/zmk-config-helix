@@ -55,11 +55,11 @@ As such, those are in use within the default layer at this time.*/
                      // |      |      |      |      |      |      |  (   |                    |  )   |      |      |      | HOME | END  |      |
                      // |      |      |      |      |      |      |      |                    |      |      |      |      |      |      |      |
                      bindings = <
-                     &trans    &kp F1   &kp F2 &kp F3   &kp F4   &kp F5                             &kp F6    &kp F7    &kp F8    &kp F9   &kp F10  &trans
-                     &trans    &kp N1   &kp N2 &kp N3   &kp N4   &kp N5                             &kp N6    &kp N7    &kp N8    &kp N9   &kp N0   &kp MINUS
-                     &trans    &trans   &kp LEFT &kp UP   &kp DOWN   &kp RIGHT                      &kp LS(N6) &kp LS(N7) &kp LS(N8)  &kp LS(N9) &kp LS(N0) &kp LS(MINUS)
-                     &trans    &trans   &trans &trans   &trans   &trans    &kp LPAR        &kp RPAR &trans    &trans    &trans    &kp HOME &kp END  &trans
-                     &trans    &trans   &trans &trans   &trans   &trans    &trans          &trans   &trans    &trans    &trans    &trans   &trans   &trans
+                     &trans    &kp F1   &kp F2   &kp F3   &kp F4     &kp F5                             &kp F6     &kp F7     &kp F8      &kp F9     &kp F10    &trans
+                     &trans    &kp N1   &kp N2   &kp N3   &kp N4     &kp N5                             &kp N6     &kp N7     &kp N8      &kp N9     &kp N0     &kp MINUS
+                     &trans    &trans   &kp LEFT &kp UP   &kp DOWN   &kp RIGHT                          &kp LS(N6) &kp LS(N7) &kp LS(N8)  &kp LS(N9) &kp LS(N0) &kp LS(MINUS)
+                     &trans    &trans   &trans   &kp PGUP &kp PGDN   &trans    &none           &none    &kp LA(N6) &kp LA(N7) &kp LA(N8)  &kp LA(N9) &kp LA(N0) &trans
+                     &kp LBKT    &kp RBKT   &kp LBRC   &kp RBRC   &kp NUHS     &kp TILDE    &kp TILDE2          &trans   &trans     &trans     &trans      &trans     &trans     &trans
                      >;
               };
               raise_layer {
@@ -85,7 +85,7 @@ As such, those are in use within the default layer at this time.*/
                      // |  BT PRV  |          |          |          |          |          |    {     |                    |    }     |          |          |          |          |          |          |
                      // |          |          |          |          |          |          |          |                    |          |          |          |          |          |          |          |
                      bindings = <
-                     &kp GRAVE  &kp EXCL     &kp AT       &kp HASH     &kp DLLR     &kp PRCNT                             &kp CARET       &kp AMPS        &kp ASTRK       &kp LPAR        &kp RPAR        &ext_power EP_TOG
+                     &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4                          &kp CARET       &kp AMPS        &kp ASTRK       &kp LPAR        &kp RPAR        &ext_power EP_TOG
                      &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4                          &rgb_ug RGB_EFF &rgb_ug RGB_HUI &rgb_ug RGB_SAI &rgb_ug RGB_SPI &rgb_ug RGB_BRI &rgb_ug RGB_TOG
                      &bt BT_NXT &out OUT_TOG &out OUT_USB &out OUT_BLE &trans       &trans                                &rgb_ug RGB_EFR &rgb_ug RGB_HUD &rgb_ug RGB_SAD &rgb_ug RGB_SPD &rgb_ug RGB_BRD &trans
                      &bt BT_PRV &trans       &trans       &trans       &trans       &trans       &kp LBRC        &kp RBRC &trans          &trans          &trans          &trans          &trans          &trans
@@ -161,57 +161,82 @@ As such, those are in use within the default layer at this time.*/
     combo_lparen {
       timeout-ms = <50>;
       key-positions = <15 16>;
-      bindings = <&kp LPAR>;
+      bindings = <&kp LS(N8)>;
     };
 
     combo_rparen {
       timeout-ms = <50>;
       key-positions = <19 20>;
-      bindings = <&kp RPAR>;
+      bindings = <&kp LS(N9)>;
     };
 
     combo_lbracket {
       timeout-ms = <50>;
       key-positions = <14 15>;
-      bindings = <&kp LBKT>;
+      bindings = <&kp LA(N8)>;
     };
 
     combo_rbracket {
       timeout-ms = <50>;
       key-positions = <20 21>;
-      bindings = <&kp RBKT>;
+      bindings = <&kp LA(N9)>;
     };
 
     combo_lbrace {
       timeout-ms = <50>;
       key-positions = <14 15 16>;
-      bindings = <&kp LBRC>;
+      bindings = <&kp LS(LA(N8))>;
     };
 
     combo_rbrace {
       timeout-ms = <50>;
       key-positions = <19 20 21>;
-      bindings = <&kp RBRC>;
+      bindings = <&kp LS(LA(N9))>;
     };
 
     combo_less {
       timeout-ms = <50>;
       key-positions = <14 16>;
-      bindings = <&kp LT>;
+      bindings = <&kp GRAVE>;
     };
 
     combo_greater {
       timeout-ms = <50>;
       key-positions = <19 21>;
-      bindings = <&kp GT>;
+      bindings = <&kp LS(GRAVE)>;
     };
 
     combo_swap {
       timeout-ms = <50>;
       key-positions = <20 21 32 33>;
-      bindings = <&kp GT>;
+      bindings = <&kp LG(TAB)>;
     };
 
+    // BORK
+    combo_circ {
+      timeout-ms = <50>;
+      key-positions = <40 41>;
+      bindings = <&kp LS(RBKT)>;
+    };
+
+    // BORK
+    combo_tild {
+      timeout-ms = <50>;
+      key-positions = <44 45>;
+      bindings = <&kp LA(RBKT)>;
+    };
+
+    combo_semicolon {
+      timeout-ms = <50>;
+      key-positions = <32 46>;
+      bindings = <&kp LS(COMMA)>;
+    };
+
+    combo_colon {
+      timeout-ms = <50>;
+      key-positions = <33 47>;
+      bindings = <&kp LS(PERIOD)>;
+    };
   };
 };
 
