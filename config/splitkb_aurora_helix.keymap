@@ -16,13 +16,13 @@
 #define RAISE  2
 #define ADJUST 3
 
-/* Uncomment this block if using RGB
+//* Uncomment this block if using RGB
 &led_strip {
        // chain-length = <6>;
        // chain-length = <38>; // Uncomment if using both per-key and underglow LEDs
-       // chain-length = <32>; // Uncomment if using only per-key LEDs.
+       chain-length = <32>; // Uncomment if using only per-key LEDs.
 };
-*/
+//*/
 
 /* NOTE: At the time of the creation of this keymap, there are no specified codes for 'eisuu' and 'kana' input in ZMK.
 However, 'LANG1' and 'LANG2' are fully-functioning candidates for 'kana' and 'eisuu' input respectively.
@@ -43,27 +43,27 @@ As such, those are in use within the default layer at this time.*/
            // |  SHIFT |   Z    |   X    |   C    |   V    |   B    |  LBKT  |                    |  RBKT  |   N    |   M    |   ,    |   .    |   /    |  RET   |
            // | ADJUST |  ESC   |  ALT   |  LGUI  | EISUU  | LOWER  | SPACE  |                    |  SPACE | RAISE  |  KANA  |  LEFT  |  DOWN  |  UP    |  RIGHT |
            bindings = <
-           &none       &kp F1      &kp F2      &kp F3      &kp F4      &kp F5                                 &kp F6    &kp F7    &kp F8     &kp F9     &kp F10   &soft_off
-           &kp TAB     &kp Q       &kp W       &kp E       &kp R       &kp T                                  &kp Y     &kp U     &kp I      &kp O      &kp P     &kp LBKT
-           &kp LCTRL   &kp A       &kp S       &kp D       &kp F       &kp G                                  &kp H     &kp J     &kp K      &kp L      &kp SEMI  &kp SQT
-           &none       &kp Z       &kp X       &kp C       &kp V       &kp B       &none            &none     &kp N     &kp M     &kp COMMA  &kp PERIOD &kp SLASH &kp NUHS
-           &kp LSHIFT  &none       &none       &mo ADJUST  &mo LOWER   &kp SPACE   &none            &none     &kp SPACE &mo RAISE &mo ADJUST &none      &none     &kp RSHIFT
+           &none       &kp F1      &kp F2      &kp F3      &kp F4      &kp F5                              &kp F6      &kp F7      &kp F8      &kp F9      &kp F10     &soft_off
+           &kp TAB     &kp Q       &kp W       &kp E       &kp R       &kp T                               &kp Y       &kp U       &kp I       &kp O       &kp P       &kp LBKT
+           &kp LCTRL   &kp A       &kp S       &kp D       &kp F       &kp G                               &kp H       &kp J       &kp K       &kp L       &kp SEMI    &kp SQT
+           &none       &kp Z       &kp X       &kp C       &kp V       &kp B       &none       &none       &kp N       &kp M       &kp COMMA   &kp PERIOD  &kp SLASH   &kp NUHS
+           &kp LSHIFT  &none       &none       &mo ADJUST  &mo LOWER   &kp SPACE   &none       &none       &kp SPACE   &mo RAISE   &mo ADJUST  &none       &none       &kp RSHIFT
            >;
     };
 
     lower_layer {
-           // ---------------------------------------------------------------------------------------------------------------------------------
-           // |      |      |      |      |      |      |                                  |      |      |      |      |      |      |
-           // |  ~   |  !   |  @   |  #   |  $   |  %   |                                  |  ^   |  &   |  *   |  (   |  )   |      |
-           // |      |      |      |      |      |      |                                  |      |  _   |  +   |  {   |  }   | PIPE |
-           // |      |      |      |      |      |      |  (   |                    |  )   |      |      |      | HOME | END  |      |
-           // |      |      |      |      |      |      |      |                    |      |      |      |      |      |      |      |
+        // ---------------------------------------------------------------------------------------------------------------------------------
+        // |           |      |      |      |      |      |                                  |      |      |      |      |      |      |
+        // |           |  !   |  @   |  #   |  $   |  %   |                                  |  ^   |  &   |  *   |  (   |  )   |      |
+        // |           |      |      |      |      |      |                                  |      |  _   |  +   |  {   |  }   | PIPE |
+        // |           |      |      |      |      |      |  (   |                    |  )   |      |      |      | HOME | END  |      |
+        // |           |      |      |      |      |      |      |                    |      |      |      |      |      |      |      |
            bindings = <
-           &none    &kp F1   &kp F2   &kp F3   &kp F4     &kp F5                             &kp F6     &kp F7     &kp F8      &kp F9     &kp F10    &none
-           &none    &kp N1   &kp N2   &kp N3   &kp N4     &kp N5                             &kp N6     &kp N7     &kp N8      &kp N9     &kp N0     &kp MINUS
-           &none    &none   &kp LEFT &kp UP   &kp DOWN   &kp RIGHT                          &kp LS(N6) &kp LS(N7) &kp LS(N8)  &kp LS(N9) &kp LS(N0) &kp LS(MINUS)
-           &none    &none   &none   &kp PGUP &kp PGDN   &none    &none           &none    &kp LA(N6) &kp LA(N7) &kp LA(N8)  &kp LA(N9) &kp LA(N0) &none
-           &none    &none   &none   &none   &none     &none    &none          &none   &none     &none     &none      &none     &none     &none
+           &none       &kp F1      &kp F2      &kp F3      &kp F4      &kp F5                              &kp F6      &kp F7      &kp F8      &kp F9      &kp F10     &none
+           &none       &kp N1      &kp N2      &kp N3      &kp N4      &kp N5                              &kp N6      &kp N7      &kp N8      &kp N9      &kp N0      &kp MINUS
+           &none       &none       &kp LEFT    &kp UP      &kp DOWN    &kp RIGHT                           &kp LS(N6)  &kp LS(N7)  &kp LS(N8)  &kp LS(N9)  &kp LS(N0)  &kp LS(MINUS)
+           &none       &none       &none       &kp PGUP    &kp PGDN    &none       &none       &none       &kp LA(N6)  &kp LA(N7)  &kp LA(N8)  &kp LA(N9)  &kp LA(N0)  &none
+           &none       &none       &none       &none       &none       &none       &none       &none       &none       &none       &none       &none       &none       &none
            >;
     };
 
@@ -242,12 +242,6 @@ As such, those are in use within the default layer at this time.*/
       bindings = <&kp LS(PERIOD)>;
     };
 
-    combo_equal {
-      timeout-ms = <200>;
-      key-positions = <28 29 30 31>;
-      bindings = <&m_equal>;
-    };
-
     combo_equality {
       timeout-ms = <50>;
       key-positions = <29 30>;
@@ -260,18 +254,28 @@ As such, those are in use within the default layer at this time.*/
       bindings = <&m_nonequality>;
     };
 
+    // BORK
+    combo_equal {
+      timeout-ms = <200>;
+      key-positions = <28 29 30 31>;
+      bindings = <&m_equal>;
+    };
+
+    // BORK
     combo_final {
       timeout-ms = <200>;
       key-positions = <28 20 44>;
       bindings = <&m_final>;
     };
 
+    // BORK
     combo_return {
       timeout-ms = <200>;
       key-positions = <16 17 44>;
       bindings = <&m_return>;
     };
 
+    // BORK
     combo_required {
       timeout-ms = <200>;
       key-positions = <13 16 20>;
