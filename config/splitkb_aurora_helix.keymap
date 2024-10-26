@@ -283,77 +283,264 @@ As such, those are in use within the default layer at this time.*/
         bindings = <&kp LG(TAB)>;
       };
 
-      // BORK
-      c_final {
+      c_final_ {
         timeout-ms = <30>;
-        key-positions = <28 20 44>; // F I N
-        bindings = <&m_final>;
+        key-positions = <28 20 44>; // FINal_
+        bindings = <&m_final_>;
       };
 
-      // BORK
-      c_return {
+      c_return_ {
         timeout-ms = <30>;
-        key-positions = <16 17 44>; // R T N
-        bindings = <&m_return>;
+        key-positions = <16 17 44>; // ReTurN_
+        bindings = <&m_return_>;
       };
 
-      // BORK
-      c_required {
+      c_required_ {
         timeout-ms = <30>;
-        key-positions = <13 16 20>; // Q R I
-        bindings = <&m_required>;
+        key-positions = <13 16 20>; // ReQuIred_
+        bindings = <&m_required_>;
       };
+
+      c_flutter_ {
+        timeout-ms = <30>;
+        key-positions = <28 33 19>; // FLUtter_
+        bindings = <&m_flutter_>;
+      };
+
+      c_pub_ {
+        timeout-ms = <30>;
+        key-positions = <19 22 41>; // PUB_
+        bindings = <&m_pub_>;
+      };
+
+      c_get_ {
+        timeout-ms = <30>;
+        key-positions = <29 15 17>; // GET_
+        bindings = <&m_get_>;
+      };
+
+      c_run_ {
+        timeout-ms = <30>;
+        key-positions = <16 19>; // RUn_
+        bindings = <&m_run_>;
+      };
+
+      c_macos_ {
+        timeout-ms = <30>;
+        key-positions = <25 39 45>; // MACos_
+        bindings = <&m_macos_>;
+      };
+
+      c_d_macos_ {
+        timeout-ms = <30>;
+        key-positions = <25 27 39 45>; // -D MACos_
+        bindings = <&m_d_macos_>;
+      };
+
+      c_void {
+        timeout-ms = <30>;
+        key-positions = <40 20 21>; // VOId
+        bindings = <&m_void>;
+      };
+
+      c_Future {
+        timeout-ms = <30>;
+        key-positions = <28 16 19>; // FUtuRe
+        bindings = <&m_Future>;
+      };
+
+      c_int {
+        timeout-ms = <30>;
+        key-positions = <17 20 44>; // INT
+        bindings = <&m_int>;
+      };
+
+      c_String {
+        timeout-ms = <30>;
+        key-positions = <16 17 26>; // STRing
+        bindings = <&m_String>;
+      };
+
+      c_double {
+        timeout-ms = <30>;
+        key-positions = <27 19 21>; // DOUble
+        bindings = <&m_double>;
+      };
+
+      c_Widget {
+        timeout-ms = <30>;
+        key-positions = <14 20 27 29>; // WIDGet
+        bindings = <&m_Widget>;
+      };
+
+      c_build {
+        timeout-ms = <30>;
+        key-positions = <41 19 20 33 27>; // BUILD
+        bindings = <&m_build>;
+      };
+
     };
 };
 
 / {
     macros {
       ZMK_MACRO(m_circ,
-          wait-ms = <30>;
-          tap-ms = <40>;
+          wait-ms = <10>;
+          tap-ms = <10>;
           bindings = <&kp LS(RBKT) &kp SPACE>;
       )
 
       ZMK_MACRO(m_tild,
-          wait-ms = <30>;
-          tap-ms = <40>;
+          wait-ms = <10>;
+          tap-ms = <10>;
           bindings = <&kp LA(RBKT) &kp SPACE>;
       )
 
       ZMK_MACRO(m_equal,
-          wait-ms = <30>;
-          tap-ms = <40>;
+          wait-ms = <10>;
+          tap-ms = <10>;
           bindings = <&kp LS(N0) &kp SPACE>;
       )
 
       ZMK_MACRO(m_equality,
-          wait-ms = <30>;
-          tap-ms = <40>;
+          wait-ms = <10>;
+          tap-ms = <10>;
           bindings = <&kp LS(N0) &kp LS(N0) &kp SPACE>;
       )
 
       ZMK_MACRO(m_nonequality,
-          wait-ms = <30>;
-          tap-ms = <40>;
+          wait-ms = <10>;
+          tap-ms = <10>;
           bindings = <&kp LS(N1) &kp LS(N0) &kp SPACE>;
       )
 
-      ZMK_MACRO(m_final,
-          wait-ms = <30>;
-          tap-ms = <40>;
+      ZMK_MACRO(m_final_,
+          wait-ms = <10>;
+          tap-ms = <10>;
           bindings = <&kp F &kp I &kp N &kp A &kp L &kp SPACE>;
       )
 
-      ZMK_MACRO(m_return,
-          wait-ms = <30>;
-          tap-ms = <40>;
+      ZMK_MACRO(m_return_,
+          wait-ms = <10>;
+          tap-ms = <10>;
           bindings = <&kp R &kp E &kp T &kp U &kp R &kp N &kp SPACE>;
       )
 
-      ZMK_MACRO(m_required,
-          wait-ms = <30>;
-          tap-ms = <40>;
+      ZMK_MACRO(m_required_,
+          wait-ms = <10>;
+          tap-ms = <10>;
           bindings = <&kp R &kp E &kp Q &kp U &kp I &kp R &kp E &kp D &kp SPACE>;
       )
+
+      ZMK_MACRO(m_flutter_,
+          wait-ms = <10>;
+          tap-ms = <10>;
+          bindings = <&kp F &kp L &kp U &kp T &kp T &kp E &kp R &kp SPACE>;
+      )
+
+      ZMK_MACRO(m_pub_,
+          wait-ms = <10>;
+          tap-ms = <10>;
+          bindings = <&kp P &kp U &kp B &kp SPACE>;
+      )
+
+      ZMK_MACRO(m_get_,
+          wait-ms = <10>;
+          tap-ms = <10>;
+          bindings = <&kp G &kp E &kp T &kp SPACE>;
+      )
+
+      ZMK_MACRO(m_run_,
+          wait-ms = <10>;
+          tap-ms = <10>;
+          bindings = <&kp R &kp U &kp N &kp SPACE>;
+      )
+
+      ZMK_MACRO(m_macos_,
+          wait-ms = <10>;
+          tap-ms = <10>;
+          bindings = <&kp M &kp A &kp C &kp O &kp S &kp SPACE>;
+      )
+
+      ZMK_MACRO(m_d_macos_,
+          wait-ms = <10>;
+          tap-ms = <10>;
+          bindings = <&kp SLASH &kp D &kp SPACE &kp M &kp A &kp C &kp O &kp S &kp SPACE>;
+      )
+
+      ZMK_MACRO(m_void,
+          wait-ms = <10>;
+          tap-ms = <10>;
+          bindings = <&kp V &kp O &kp I &kp D>;
+      )
+
+      ZMK_MACRO(m_Future,
+          wait-ms = <10>;
+          tap-ms = <10>;
+          bindings = <&kp LS(F) &kp U &kp T &kp U &kp R &kp E>;
+      )
+
+      ZMK_MACRO(m_int,
+          wait-ms = <10>;
+          tap-ms = <10>;
+          bindings = <&kp I &kp N &kp T>;
+      )
+
+      ZMK_MACRO(m_String,
+          wait-ms = <10>;
+          tap-ms = <10>;
+          bindings = <&kp LS(S) &kp T &kp R &kp I &kp N &kp G>;
+      )
+
+      ZMK_MACRO(m_double,
+          wait-ms = <10>;
+          tap-ms = <10>;
+          bindings = <&kp D &kp O &kp U &kp B &kp L &kp E>;
+      )
+
+      ZMK_MACRO(m_Widget,
+          wait-ms = <10>;
+          tap-ms = <10>;
+          bindings = <&kp LS(W) &kp I &kp D &kp G &kp E &kp T>;
+      )
+
+      ZMK_MACRO(m_build,
+          wait-ms = <10>;
+          tap-ms = <10>;
+          bindings = <&kp B &kp U &kp I &kp L &kp D>;
+      )
+
+      // NOT IMPLEMENTED BELOW
+
+      ZMK_MACRO(m_git_,
+          wait-ms = <10>;
+          tap-ms = <10>;
+          bindings = <&kp G &kp I &kp T&kp SPACE>;
+      )
+
+      ZMK_MACRO(m_status_,
+          wait-ms = <10>;
+          tap-ms = <10>;
+          bindings = <&kp S &kp T &kp A &kp T &kp U &kp S &kp SPACE>;
+      )
+
+      ZMK_MACRO(m_function_,
+          wait-ms = <10>;
+          tap-ms = <10>;
+          bindings = <&kp LS(F) &kp U &kp N &kp C &kp T &kp I &kp O &kp N>;
+      )
+
+      ZMK_MACRO(m_async_,
+          wait-ms = <10>;
+          tap-ms = <10>;
+          bindings = <&kp A &kp S &kp Y &kp N &kp C &kp SPACE>;
+      )
+
+      ZMK_MACRO(m_await_,
+          wait-ms = <10>;
+          tap-ms = <10>;
+          bindings = <&kp A &kp W &kp A &kp I &kp T &kp SPACE>;
+      )
+
     };
 };
