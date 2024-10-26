@@ -261,46 +261,46 @@ As such, those are in use within the default layer at this time.*/
       // BORK
       c_equal {
         timeout-ms = <30>;
-        key-positions = <41 44>; // B+N
+        key-positions = <28 29 30 31>; // F G H J
         bindings = <&m_equal>;
       };
 
       c_equality {
         timeout-ms = <30>;
-        key-positions = <29 30>;
+        key-positions = <29 30>; // G H
         bindings = <&m_equality>;
       };
 
       c_nonequality {
         timeout-ms = <30>;
-        key-positions = <28 31>;
+        key-positions = <28 31>; // F J
         bindings = <&m_nonequality>;
       };
 
       c_swap {
         timeout-ms = <30>;
-        key-positions = <20 21 32 33>;
+        key-positions = <20 21 32 33>; // I O K L
         bindings = <&kp LG(TAB)>;
       };
 
       // BORK
       c_final {
         timeout-ms = <30>;
-        key-positions = <28 20 44>;
+        key-positions = <28 20 44>; // F I N
         bindings = <&m_final>;
       };
 
       // BORK
       c_return {
         timeout-ms = <30>;
-        key-positions = <16 17 44>;
+        key-positions = <16 17 44>; // R T N
         bindings = <&m_return>;
       };
 
       // BORK
       c_required {
         timeout-ms = <30>;
-        key-positions = <13 16 20>;
+        key-positions = <13 16 20>; // Q R I
         bindings = <&m_required>;
       };
     };
