@@ -94,7 +94,7 @@ As such, those are in use within the default layer at this time.*/
     // | LSHIFT        |               |               | ADJUST        | LOWER         | SPACE         |               |           | SPACE         |  RAISE        |  ADJUST       |               |               |  RSHIFT       |
       bindings = <
         &bt BT_CLR      &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_SEL 3    &bt BT_SEL 4                                &none           &none           &none           &none           &none           &ext_power EP_TOG
-        &none           &none           &none           &none           &none           &none                                       &none           &none           &none           &none           &none           &rgb_ug RGB_TOG
+        &none           &none           &none           &none           &none           &none                                       &none           &none           &none           &none           &none           &none
         &none           &none           &none           &none           &none           &none                                       &none           &none           &none           &none           &none           &none
         &none           &none           &none           &none           &none           &none           &none           &none       &none           &none           &none           &none           &none           &none
         &none           &none           &none           &none           &none           &none           &none           &none       &none           &none           &none           &none           &none           &none
@@ -378,7 +378,6 @@ As such, those are in use within the default layer at this time.*/
         key-positions = <41 19 20 33 27>; // BUILD
         bindings = <&m_build>;
       };
-
     };
 };
 
