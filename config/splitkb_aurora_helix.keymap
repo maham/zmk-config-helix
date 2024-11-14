@@ -16,7 +16,7 @@
 #define RAISE  2
 #define ADJUST 3
 
-//* Uncomment this block if using RGB
+/* Uncomment this block if using RGB
 &led_strip {
        // chain-length = <6>;
        // chain-length = <38>; // Uncomment if using both per-key and underglow LEDs
@@ -24,9 +24,6 @@
 };
 //*/
 
-/* NOTE: At the time of the creation of this keymap, there are no specified codes for 'eisuu' and 'kana' input in ZMK.
-However, 'LANG1' and 'LANG2' are fully-functioning candidates for 'kana' and 'eisuu' input respectively.
-As such, those are in use within the default layer at this time.*/
 &soft_off {
   hold-time-ms = <3000>;
 };
@@ -52,16 +49,33 @@ As such, those are in use within the default layer at this time.*/
       >;
     };
 
+    // gaming_layer {
+    // // -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    // // |               |               |               |               |               |               |                           |               |               |               |               |               |               |
+    // // |  ESC          |               |               |               |               |               |                           |               |               |               |               |               |               |
+    // // |  TAB          |               |               |               |               |               |                           |               |               |               |               |               |               |
+    // // | LSHIFT        |               |               |               |               |               |               |           |               |               |               |               |               |  LSHIFT       |
+    // // | LCTRL         |               |               |               |               |               |   BACKSPACE   |   ENTER   |               |               |               |               |               |  RCTRL        |
+    // // -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    //   bindings = <    
+    //     &trans          &trans          &trans          &trans          &trans          &trans                                      &trans          &trans          &trans          &trans          &trans          &trans
+    //     &kp ESC         &trans          &trans          &trans          &trans          &trans                                      &trans          &trans          &trans          &trans          &trans          &trans
+    //     &kp TAB         &trans          &trans          &trans          &trans          &trans                                      &trans          &trans          &trans          &trans          &trans          &trans
+    //     &kp LSHIFT      &trans          &trans          &trans          &trans          &trans          &trans          &trans      &trans          &trans          &trans          &trans          &trans          &kp RSHIFT
+    //     &kp LCTRL       &trans          &trans          &trans          &trans          &trans          &kp BSPC        &kp RET     &trans          &trans          &trans          &trans          &trans          &kp RCTRL
+    //   >;
+    // };
+
     lower_layer {
     // -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    // |               |   F1          |   F2          |   F3          |   F4          |   F5          |                           |   F6          |   F7          |   F8          |   F9          |  F10          |  SOFT_OFF     |
-    // |               |   Q           |   W           |   E           |   R           |   T           |                           |   Y           |   U           |   I           |   O           |   P           |   Å           |
-    // |               |   A           |   S           |   D           |   F           |   G           |                           |   H           |   J           |   K           |   L           |   Ö           |   Ä           |
-    // |               |   Z           |   X           |   C           |   V           |   B           |               |           |   N           |   M           |   ,           |   .           |   -           |   '           |
-    // | LSHIFT        |               |               | ADJUST        | LOWER         | SPACE         |               |           | SPACE         |  RAISE        |  ADJUST       |               |               |  RSHIFT       |
+    // |               |               |               |               |               |               |                           |               |               |               |               |               |               |
+    // |               |   1           |   2           |   3           |   4           |   5           |                           |   6           |   7           |   8           |   9           |   0           |   +           |
+    // |               |               |  LEFT         |   UP          |  DOWN         |  RIGHT        |                           |   &           |   /           |   (           |   )           |   =           |   ?           |
+    // |               |               |               |  PG UP        | PG DOWN       |               |               |           |   §           |   |           |   [           |   ]           |   ≈           |   *           |
+    // |               |               |               |               |               |               |               |           |               |               |               |               |               |               |
     // -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
       bindings = <
-        &none           &kp F1          &kp F2          &kp F3          &kp F4          &kp F5                                      &kp F6          &kp F7          &kp F8          &kp F9          &kp F10         &none
+        &trans          &trans          &trans          &trans          &trans          &trans                                      &trans          &trans          &trans          &trans          &trans          &trans
         &none           &kp N1          &kp N2          &kp N3          &kp N4          &kp N5                                      &kp N6          &kp N7          &kp N8          &kp N9          &kp N0          &kp MINUS
         &none           &none           &kp LEFT        &kp UP          &kp DOWN        &kp RIGHT                                   &kp LS(N6)      &kp LS(N7)      &kp LS(N8)      &kp LS(N9)      &kp LS(N0)      &kp LS(MINUS)
         &none           &none           &none           &kp PGUP        &kp PGDN        &none           &none           &none       &kp LA(N6)      &kp LA(N7)      &kp LA(N8)      &kp LA(N9)      &kp LA(N0)      &kp LS(NUHS)
@@ -71,27 +85,29 @@ As such, those are in use within the default layer at this time.*/
 
     raise_layer {
     // -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    // |               |   F1          |   F2          |   F3          |   F4          |   F5          |                           |   F6          |   F7          |   F8          |   F9          |  F10          |  SOFT_OFF     |
-    // |               |   Q           |   W           |   E           |   R           |   T           |                           |   Y           |   U           |   I           |   O           |   P           |   Å           |
-    // |               |   A           |   S           |   D           |   F           |   G           |                           |   H           |   J           |   K           |   L           |   Ö           |   Ä           |
-    // |               |   Z           |   X           |   C           |   V           |   B           |               |           |   N           |   M           |   ,           |   .           |   -           |   '           |
-    // | LSHIFT        |               |               | ADJUST        | LOWER         | SPACE         |               |           | SPACE         |  RAISE        |  ADJUST       |               |               |  RSHIFT       |
+    // |               |               |               |               |               |               |                           |               |               |               |               |               |               |
+    // |               |   1           |   2           |   3           |   4           |   5           |                           |   6           |   7           |   8           |   9           |   0           |               |
+    // |               |   !           |   "           |   #           |   €           |   %           |                           |  LEFT         |  DOWN         |   UP          |  RIGHT        |               |               |
+    // |               |   ©           |   @           |   £           |   $           |   ∞           |               |           |               | PG DOWN       |  PG UP        |               |               |               |
+    // |               |               |               |               |               |               |               |           |               |               |               |               |               |               |
+    // -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
       bindings = <
-        &none           &kp F1          &kp F2          &kp F3          &kp F4          &kp F5                                      &kp F6          &kp F7          &kp F8          &kp F9          &kp F10         &none
+        &trans          &trans          &trans          &trans          &trans          &trans                                      &trans          &trans          &trans          &trans          &trans          &trans
         &none           &kp N1          &kp N2          &kp N3          &kp N4          &kp N5                                      &kp N6          &kp N7          &kp N8          &kp N9          &kp N0          &none
         &none           &kp LS(N1)      &kp LS(N2)      &kp LS(N3)      &kp LS(N4)      &kp LS(N5)                                  &kp LEFT        &kp DOWN        &kp UP          &kp RIGHT       &none           &none
-        &none           &kp LA(N1)      &kp LA(N2)      &kp LA(N3)      &kp LA(N4)      &kp LA(N5)      &none           &none       &kp F12         &none           &kp PSCRN       &kp PG_DN       &kp PG_UP       &none
+        &none           &kp LA(N1)      &kp LA(N2)      &kp LA(N3)      &kp LA(N4)      &kp LA(N5)      &none           &none       &none           &kp PG_DN       &kp PG_DN       &none           &none           &none
         &none           &none           &none           &none           &none           &none           &none           &none       &none           &none           &none           &none           &none           &none
       >;
     };
     
     adjust_layer {
     // -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    // |               |   F1          |   F2          |   F3          |   F4          |   F5          |                           |   F6          |   F7          |   F8          |   F9          |  F10          |  SOFT_OFF     |
-    // |               |   Q           |   W           |   E           |   R           |   T           |                           |   Y           |   U           |   I           |   O           |   P           |   Å           |
-    // |               |   A           |   S           |   D           |   F           |   G           |                           |   H           |   J           |   K           |   L           |   Ö           |   Ä           |
-    // |               |   Z           |   X           |   C           |   V           |   B           |               |           |   N           |   M           |   ,           |   .           |   -           |   '           |
-    // | LSHIFT        |               |               | ADJUST        | LOWER         | SPACE         |               |           | SPACE         |  RAISE        |  ADJUST       |               |               |  RSHIFT       |
+    // | BT CLR        |  BT 1         |  BT 2         |  BT 3         |  BT 4         |  BT 5         |                           |               |               |               |               |               |  EP TOGGLE    |
+    // |               |               |               |               |               |               |                           |               |               |               |               |               |               |
+    // |               |               |               |               |               |               |                           |               |               |               |               |               |               |
+    // |               |               |               |               |               |               |               |           |               |               |               |               |               |               |
+    // |               |               |               |               |               |               |               |           |               |               |               |               |               |               |
+    // -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
       bindings = <
         &bt BT_CLR      &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_SEL 3    &bt BT_SEL 4                                &none           &none           &none           &none           &none           &ext_power EP_TOG
         &none           &none           &none           &none           &none           &none                                       &none           &none           &none           &none           &none           &none
@@ -106,28 +122,40 @@ As such, those are in use within the default layer at this time.*/
 / {
     combos {
       compatible = "zmk,combos";
+
+      c_caps_word {
+        timeout-ms = <30>;
+        key-positions = <50 63>; // LSHIFT + RSHIFT
+        bindings = <&caps_word>;
+        require-prior-idle-ms = <50>;
+      };
+
       c_esc {
         timeout-ms = <30>;
-        key-positions = <26 27 28>;
+        key-positions = <26 27 28>; // S + D + F
         bindings = <&kp ESC>;
+        require-prior-idle-ms = <50>;
       };
 
       c_ret {
         timeout-ms = <30>;
-        key-positions = <31 32>;
+        key-positions = <31 32>; // J + K
         bindings = <&kp RET>;
+        require-prior-idle-ms = <50>;
       };
 
       c_tab {
         timeout-ms = <30>;
-        key-positions = <27 28>;
+        key-positions = <27 28>; // D + F
         bindings = <&kp TAB>;
+        require-prior-idle-ms = <50>;
       };
 
       c_bspc {
         timeout-ms = <30>;
-        key-positions = <26 27>;
+        key-positions = <26 27>; // S + D
         bindings = <&kp BSPC>;
+        require-prior-idle-ms = <50>;
       };
 
       //
@@ -136,38 +164,44 @@ As such, those are in use within the default layer at this time.*/
 
       c_lctrl {
         timeout-ms = <30>;
-        key-positions = <14 26>;
+        key-positions = <14 26>; // W + S
         bindings = <&kp LCTRL>;
+        require-prior-idle-ms = <50>;
       };
 
       c_rctrl {
         timeout-ms = <30>;
-        key-positions = <21 33>;
+        key-positions = <21 33>; // O + L
         bindings = <&kp RCTRL>;
+        require-prior-idle-ms = <50>;
       };
 
       c_lalt {
         timeout-ms = <30>;
-        key-positions = <15 27>;
+        key-positions = <15 27>; // E + D
         bindings = <&kp LALT>;
+        require-prior-idle-ms = <50>;
       };
 
       c_ralt {
         timeout-ms = <30>;
-        key-positions = <20 32>;
+        key-positions = <20 32>; // I + K
         bindings = <&kp RALT>;
+        require-prior-idle-ms = <50>;
       };
 
       c_lgui {
         timeout-ms = <30>;
-        key-positions = <16 28>;
+        key-positions = <16 28>; // R + F
         bindings = <&kp LGUI>;
+        require-prior-idle-ms = <50>;
       };
 
       c_rgui {
         timeout-ms = <30>;
-        key-positions = <19 31>;
+        key-positions = <19 31>; // U + J
         bindings = <&kp RGUI>;
+        require-prior-idle-ms = <50>;
       };
 
       //
@@ -176,207 +210,240 @@ As such, those are in use within the default layer at this time.*/
 
       c_lparen {
         timeout-ms = <30>;
-        key-positions = <15 16>;
+        key-positions = <15 16>; // E + R
         bindings = <&kp LS(N8)>;
+        require-prior-idle-ms = <50>;
       };
 
       c_rparen {
         timeout-ms = <30>;
-        key-positions = <19 20>;
+        key-positions = <19 20>; // U + I 
         bindings = <&kp LS(N9)>;
+        require-prior-idle-ms = <50>;
       };
 
       c_lbracket {
         timeout-ms = <30>;
-        key-positions = <14 15>;
+        key-positions = <14 15>; // Q + W
         bindings = <&kp LA(N8)>;
+        require-prior-idle-ms = <50>;
       };
 
       c_rbracket {
         timeout-ms = <30>;
-        key-positions = <20 21>;
+        key-positions = <20 21>; // I + O
         bindings = <&kp LA(N9)>;
+        require-prior-idle-ms = <50>;
       };
 
       c_lbrace {
         timeout-ms = <30>;
-        key-positions = <14 15 16>;
+        key-positions = <14 15 16>; // W + E + R
         bindings = <&kp LS(LA(N8))>;
+        require-prior-idle-ms = <50>;
       };
 
       c_rbrace {
         timeout-ms = <30>;
-        key-positions = <19 20 21>;
+        key-positions = <19 20 21>; // U + I + O
         bindings = <&kp LS(LA(N9))>;
+        require-prior-idle-ms = <50>;
       };
 
       c_less {
         timeout-ms = <30>;
-        key-positions = <14 16>;
+        key-positions = <14 16>; // W + R
         bindings = <&kp GRAVE>;
+        require-prior-idle-ms = <50>;
       };
 
       c_greater {
         timeout-ms = <30>;
-        key-positions = <19 21>;
+        key-positions = <19 21>; // U + O
         bindings = <&kp LS(GRAVE)>;
+        require-prior-idle-ms = <50>;
       };
 
       c_circ {
         timeout-ms = <30>;
-        key-positions = <40 41>;
+        key-positions = <40 41>; // V + B
         bindings = <&m_circ>;
+        require-prior-idle-ms = <50>;
       };
 
       c_tild {
         timeout-ms = <30>;
-        key-positions = <44 45>;
+        key-positions = <44 45>; // N + M
         bindings = <&m_tild>;
+        require-prior-idle-ms = <50>;
       };
 
       c_semicolon {
         timeout-ms = <30>;
-        key-positions = <32 46>;
+        key-positions = <32 46>; // K + COMMA
         bindings = <&kp LS(COMMA)>;
+        require-prior-idle-ms = <50>;
       };
 
       c_colon {
         timeout-ms = <30>;
-        key-positions = <33 47>;
+        key-positions = <33 47>; // L + PERIOD
         bindings = <&kp LS(PERIOD)>;
+        require-prior-idle-ms = <50>;
       };
 
       c_singlequote {
         timeout-ms = <30>;
-        key-positions = <13 25>;
+        key-positions = <13 25>; // Q + A
         bindings = <&kp NUHS>;
+        require-prior-idle-ms = <50>;
       };
 
       c_doublequote {
         timeout-ms = <30>;
-        key-positions = <22 34>;
+        key-positions = <22 34>; // P + SEMI
         bindings = <&kp LS(N2)>;
+        require-prior-idle-ms = <50>;
       };
 
-      // BORK
       c_equal {
         timeout-ms = <30>;
         key-positions = <28 29 30 31>; // F G H J
         bindings = <&m_equal>;
+        require-prior-idle-ms = <50>;
       };
 
       c_equality {
         timeout-ms = <30>;
         key-positions = <29 30>; // G H
         bindings = <&m_equality>;
+        require-prior-idle-ms = <50>;
       };
 
       c_nonequality {
         timeout-ms = <30>;
         key-positions = <28 31>; // F J
         bindings = <&m_nonequality>;
+        require-prior-idle-ms = <50>;
       };
 
       c_swap {
         timeout-ms = <30>;
         key-positions = <20 21 32 33>; // I O K L
         bindings = <&kp LG(TAB)>;
+        require-prior-idle-ms = <50>;
       };
 
       c_final_ {
         timeout-ms = <30>;
         key-positions = <28 20 44>; // FINal_
         bindings = <&m_final_>;
+        require-prior-idle-ms = <50>;
       };
 
       c_return_ {
         timeout-ms = <30>;
         key-positions = <16 17 44>; // ReTurN_
         bindings = <&m_return_>;
+        require-prior-idle-ms = <50>;
       };
 
       c_required_ {
         timeout-ms = <30>;
         key-positions = <13 16 20>; // ReQuIred_
         bindings = <&m_required_>;
+        require-prior-idle-ms = <50>;
       };
 
       c_flutter_ {
         timeout-ms = <30>;
         key-positions = <28 33 19>; // FLUtter_
         bindings = <&m_flutter_>;
+        require-prior-idle-ms = <50>;
       };
 
       c_pub_ {
         timeout-ms = <30>;
         key-positions = <19 22 41>; // PUB_
         bindings = <&m_pub_>;
+        require-prior-idle-ms = <50>;
       };
 
       c_get_ {
         timeout-ms = <30>;
         key-positions = <29 15 17>; // GET_
         bindings = <&m_get_>;
+        require-prior-idle-ms = <50>;
       };
 
       c_run_ {
         timeout-ms = <30>;
         key-positions = <16 19>; // RUn_
         bindings = <&m_run_>;
+        require-prior-idle-ms = <50>;
       };
 
       c_macos_ {
         timeout-ms = <30>;
         key-positions = <25 39 45>; // MACos_
         bindings = <&m_macos_>;
+        require-prior-idle-ms = <50>;
       };
 
       c_d_macos_ {
         timeout-ms = <30>;
         key-positions = <25 27 39 45>; // -D MACos_
         bindings = <&m_d_macos_>;
+        require-prior-idle-ms = <50>;
       };
 
       c_void {
         timeout-ms = <30>;
         key-positions = <40 20 21>; // VOId
         bindings = <&m_void>;
+        require-prior-idle-ms = <50>;
       };
 
       c_Future {
         timeout-ms = <30>;
         key-positions = <28 16 19>; // FUtuRe
         bindings = <&m_Future>;
+        require-prior-idle-ms = <50>;
       };
 
       c_int {
         timeout-ms = <30>;
         key-positions = <17 20 44>; // INT
         bindings = <&m_int>;
+        require-prior-idle-ms = <50>;
       };
 
       c_String {
         timeout-ms = <30>;
         key-positions = <16 17 26>; // STRing
         bindings = <&m_String>;
+        require-prior-idle-ms = <50>;
       };
 
       c_double {
         timeout-ms = <30>;
         key-positions = <27 19 21>; // DOUble
         bindings = <&m_double>;
+        require-prior-idle-ms = <50>;
       };
 
       c_Widget {
         timeout-ms = <30>;
         key-positions = <14 20 27 29>; // WIDGet
         bindings = <&m_Widget>;
+        require-prior-idle-ms = <50>;
       };
 
       c_build {
         timeout-ms = <30>;
         key-positions = <41 19 20 33 27>; // BUILD
         bindings = <&m_build>;
+        require-prior-idle-ms = <50>;
       };
     };
 };
@@ -540,6 +607,5 @@ As such, those are in use within the default layer at this time.*/
           tap-ms = <10>;
           bindings = <&kp A &kp W &kp A &kp I &kp T &kp SPACE>;
       )
-
     };
 };
