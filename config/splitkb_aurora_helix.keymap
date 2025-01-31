@@ -42,7 +42,7 @@
     // | LSHIFT        |               |               | ADJUST        | LOWER         | SPACE         |               |           | SPACE         |  RAISE        |  ADJUST       |               |               |  RSHIFT       |
     // -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
       bindings = <    
-        &none           &kp F1          &kp F2          &kp F3          &kp F4          &kp F5                                      &kp F6          &kp F7          &kp F8          &kp F9          &kp F10         &soft_off
+        &none           &kp N1          &kp N2          &kp N3          &kp N4          &kp N5                                      &kp N6          &kp N7          &kp N8          &kp N9          &kp N0          &soft_off
         &none           &kp Q           &kp W           &kp E           &kp R           &kp T                                       &kp Y           &kp U           &kp I           &kp O           &kp P           &kp LBKT
         &none           &kp A           &kp S           &kp D           &kp F           &kp G                                       &kp H           &kp J           &kp K           &kp L           &kp SEMI        &kp SQT
         &none           &kp Z           &kp X           &kp C           &kp V           &kp B           &none           &none       &kp N           &kp M           &kp COMMA       &kp PERIOD      &kp SLASH       &kp NUHS
@@ -59,11 +59,11 @@
     // | LCTRL         |               |               |               |               |               |   BACKSPACE   |   ENTER   |               |               |               |               |               |  RCTRL        |
     // -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
       bindings = <    
-        &trans          &trans          &trans          &trans          &trans          &trans                                      &trans          &trans          &trans          &trans          &trans          &trans
         &kp ESC         &trans          &trans          &trans          &trans          &trans                                      &trans          &trans          &trans          &trans          &trans          &trans
         &kp TAB         &trans          &trans          &trans          &trans          &trans                                      &trans          &trans          &trans          &trans          &trans          &trans
+        &kp LALT        &trans          &trans          &trans          &trans          &trans                                      &trans          &trans          &trans          &trans          &trans          &trans
         &kp LSHIFT      &trans          &trans          &trans          &trans          &trans          &trans          &trans      &trans          &trans          &trans          &trans          &trans          &kp RSHIFT
-        &kp LCTRL       &trans          &trans          &trans          &trans          &trans          &kp BSPC        &kp RET     &trans          &trans          &trans          &trans          &trans          &kp RCTRL
+        &kp LCTRL       &trans          &trans          &trans          &trans          &trans          &kp BSPC        &kp RET     &trans          &trans          &trans          &trans          &kp LALT        &kp RCTRL
       >;
     };
 
@@ -76,8 +76,8 @@
     // |               |               |               |               |               |               |               |           |               |               |               |               |               |               |
     // -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
       bindings = <
-        &trans          &trans          &trans          &trans          &trans          &trans                                      &trans          &trans          &trans          &trans          &trans          &trans
-        &none           &kp N1          &kp N2          &kp N3          &kp N4          &kp N5                                      &kp N6          &kp N7          &kp N8          &kp N9          &kp N0          &kp MINUS
+        &none           &kp F1          &kp F2          &kp F3          &kp F4          &kp F5                                      &kp F6          &kp F7          &kp F8          &kp F9          &kp F10         &none
+        &none           &none           &none           &none           &none           &none                                       &none           &none           &none           &none           &none           &kp MINUS
         &none           &none           &kp LEFT        &kp UP          &kp DOWN        &kp RIGHT                                   &kp LS(N6)      &kp LS(N7)      &kp LS(N8)      &kp LS(N9)      &kp LS(N0)      &kp LS(MINUS)
         &none           &none           &none           &kp PGUP        &kp PGDN        &none           &none           &none       &kp LA(N6)      &kp LA(N7)      &kp LA(N8)      &kp LA(N9)      &kp LA(N0)      &kp LS(NUHS)
         &none           &none           &none           &none           &none           &none           &tog GAMING     &none       &none           &none           &none           &none           &none           &none
@@ -93,8 +93,8 @@
     // |               |               |               |               |               |               |               |           |               |               |               |               |               |               |
     // -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
       bindings = <
-        &trans          &trans          &trans          &trans          &trans          &trans                                      &trans          &trans          &trans          &trans          &trans          &trans
-        &none           &kp N1          &kp N2          &kp N3          &kp N4          &kp N5                                      &kp N6          &kp N7          &kp N8          &kp N9          &kp N0          &none
+        &none           &kp F1          &kp F2          &kp F3          &kp F4          &kp F5                                      &kp F6          &kp F7          &kp F8          &kp F9          &kp F10         &none
+        &none           &none           &none           &none           &none           &none                                       &none           &none           &none           &none           &none           &none
         &none           &kp LS(N1)      &kp LS(N2)      &kp LS(N3)      &kp LS(N4)      &kp LS(N5)                                  &kp LEFT        &kp DOWN        &kp UP          &kp RIGHT       &none           &none
         &none           &kp LA(N1)      &kp LA(N2)      &kp LA(N3)      &kp LA(N4)      &kp LA(N5)      &none           &none       &none           &kp PG_DN       &kp PG_DN       &none           &none           &none
         &none           &none           &none           &none           &none           &none           &none           &none       &none           &none           &none           &none           &none           &none
@@ -129,6 +129,7 @@
         key-positions = <50 63>; // LSHIFT + RSHIFT
         bindings = <&caps_word>;
         require-prior-idle-ms = <50>;
+        layers = <0>;
       };
 
       c_esc {
@@ -136,6 +137,7 @@
         key-positions = <26 27 28>; // S + D + F
         bindings = <&kp ESC>;
         require-prior-idle-ms = <50>;
+        layers = <0>;
       };
 
       c_ret {
@@ -143,6 +145,7 @@
         key-positions = <31 32>; // J + K
         bindings = <&kp RET>;
         require-prior-idle-ms = <50>;
+        layers = <0>;
       };
 
       c_tab {
@@ -150,6 +153,7 @@
         key-positions = <27 28>; // D + F
         bindings = <&kp TAB>;
         require-prior-idle-ms = <50>;
+        layers = <0>;
       };
 
       c_bspc {
@@ -157,6 +161,7 @@
         key-positions = <26 27>; // S + D
         bindings = <&kp BSPC>;
         require-prior-idle-ms = <50>;
+        layers = <0>;
       };
 
       //
@@ -168,6 +173,7 @@
         key-positions = <14 26>; // W + S
         bindings = <&kp LCTRL>;
         require-prior-idle-ms = <50>;
+        layers = <0>;
       };
 
       c_rctrl {
@@ -175,6 +181,7 @@
         key-positions = <21 33>; // O + L
         bindings = <&kp RCTRL>;
         require-prior-idle-ms = <50>;
+        layers = <0>;
       };
 
       c_lalt {
@@ -182,6 +189,7 @@
         key-positions = <15 27>; // E + D
         bindings = <&kp LALT>;
         require-prior-idle-ms = <50>;
+        layers = <0>;
       };
 
       c_ralt {
@@ -189,6 +197,7 @@
         key-positions = <20 32>; // I + K
         bindings = <&kp RALT>;
         require-prior-idle-ms = <50>;
+        layers = <0>;
       };
 
       c_lgui {
@@ -196,6 +205,7 @@
         key-positions = <16 28>; // R + F
         bindings = <&kp LGUI>;
         require-prior-idle-ms = <50>;
+        layers = <0>;
       };
 
       c_rgui {
@@ -203,6 +213,7 @@
         key-positions = <19 31>; // U + J
         bindings = <&kp RGUI>;
         require-prior-idle-ms = <50>;
+        layers = <0>;
       };
 
       //
@@ -214,6 +225,7 @@
         key-positions = <15 16>; // E + R
         bindings = <&kp LS(N8)>;
         require-prior-idle-ms = <50>;
+        layers = <0>;
       };
 
       c_rparen {
@@ -221,6 +233,7 @@
         key-positions = <19 20>; // U + I 
         bindings = <&kp LS(N9)>;
         require-prior-idle-ms = <50>;
+        layers = <0>;
       };
 
       c_lbracket {
@@ -228,6 +241,7 @@
         key-positions = <14 15>; // Q + W
         bindings = <&kp LA(N8)>;
         require-prior-idle-ms = <50>;
+        layers = <0>;
       };
 
       c_rbracket {
@@ -235,6 +249,7 @@
         key-positions = <20 21>; // I + O
         bindings = <&kp LA(N9)>;
         require-prior-idle-ms = <50>;
+        layers = <0>;
       };
 
       c_lbrace {
@@ -242,6 +257,7 @@
         key-positions = <14 15 16>; // W + E + R
         bindings = <&kp LS(LA(N8))>;
         require-prior-idle-ms = <50>;
+        layers = <0>;
       };
 
       c_rbrace {
@@ -249,6 +265,7 @@
         key-positions = <19 20 21>; // U + I + O
         bindings = <&kp LS(LA(N9))>;
         require-prior-idle-ms = <50>;
+        layers = <0>;
       };
 
       c_less {
@@ -256,6 +273,7 @@
         key-positions = <14 16>; // W + R
         bindings = <&kp GRAVE>;
         require-prior-idle-ms = <50>;
+        layers = <0>;
       };
 
       c_greater {
@@ -263,6 +281,7 @@
         key-positions = <19 21>; // U + O
         bindings = <&kp LS(GRAVE)>;
         require-prior-idle-ms = <50>;
+        layers = <0>;
       };
 
       c_circ {
@@ -270,6 +289,7 @@
         key-positions = <40 41>; // V + B
         bindings = <&m_circ>;
         require-prior-idle-ms = <50>;
+        layers = <0>;
       };
 
       c_tild {
@@ -277,6 +297,7 @@
         key-positions = <44 45>; // N + M
         bindings = <&m_tild>;
         require-prior-idle-ms = <50>;
+        layers = <0>;
       };
 
       c_semicolon {
@@ -284,6 +305,7 @@
         key-positions = <32 46>; // K + COMMA
         bindings = <&kp LS(COMMA)>;
         require-prior-idle-ms = <50>;
+        layers = <0>;
       };
 
       c_colon {
@@ -291,6 +313,7 @@
         key-positions = <33 47>; // L + PERIOD
         bindings = <&kp LS(PERIOD)>;
         require-prior-idle-ms = <50>;
+        layers = <0>;
       };
 
       c_singlequote {
@@ -298,6 +321,7 @@
         key-positions = <13 25>; // Q + A
         bindings = <&kp NUHS>;
         require-prior-idle-ms = <50>;
+        layers = <0>;
       };
 
       c_doublequote {
@@ -305,6 +329,7 @@
         key-positions = <22 34>; // P + SEMI
         bindings = <&kp LS(N2)>;
         require-prior-idle-ms = <50>;
+        layers = <0>;
       };
 
       c_equal {
@@ -312,6 +337,7 @@
         key-positions = <28 29 30 31>; // F G H J
         bindings = <&m_equal>;
         require-prior-idle-ms = <50>;
+        layers = <0>;
       };
 
       c_equality {
@@ -319,6 +345,7 @@
         key-positions = <29 30>; // G H
         bindings = <&m_equality>;
         require-prior-idle-ms = <50>;
+        layers = <0>;
       };
 
       c_nonequality {
@@ -326,6 +353,7 @@
         key-positions = <28 31>; // F J
         bindings = <&m_nonequality>;
         require-prior-idle-ms = <50>;
+        layers = <0>;
       };
 
       c_swap {
@@ -333,6 +361,7 @@
         key-positions = <20 21 32 33>; // I O K L
         bindings = <&kp LG(TAB)>;
         require-prior-idle-ms = <50>;
+        layers = <0>;
       };
 
       c_final_ {
@@ -340,6 +369,7 @@
         key-positions = <28 20 44>; // FINal_
         bindings = <&m_final_>;
         require-prior-idle-ms = <50>;
+        layers = <0>;
       };
 
       c_return_ {
@@ -347,6 +377,7 @@
         key-positions = <16 17 44>; // ReTurN_
         bindings = <&m_return_>;
         require-prior-idle-ms = <50>;
+        layers = <0>;
       };
 
       c_required_ {
@@ -354,6 +385,7 @@
         key-positions = <13 16 20>; // ReQuIred_
         bindings = <&m_required_>;
         require-prior-idle-ms = <50>;
+        layers = <0>;
       };
 
       c_flutter_ {
@@ -361,6 +393,7 @@
         key-positions = <28 33 19>; // FLUtter_
         bindings = <&m_flutter_>;
         require-prior-idle-ms = <50>;
+        layers = <0>;
       };
 
       c_pub_ {
@@ -368,6 +401,7 @@
         key-positions = <19 22 41>; // PUB_
         bindings = <&m_pub_>;
         require-prior-idle-ms = <50>;
+        layers = <0>;
       };
 
       c_get_ {
@@ -375,6 +409,7 @@
         key-positions = <29 15 17>; // GET_
         bindings = <&m_get_>;
         require-prior-idle-ms = <50>;
+        layers = <0>;
       };
 
       c_run_ {
@@ -382,6 +417,7 @@
         key-positions = <16 19>; // RUn_
         bindings = <&m_run_>;
         require-prior-idle-ms = <50>;
+        layers = <0>;
       };
 
       c_macos_ {
@@ -389,6 +425,7 @@
         key-positions = <25 39 45>; // MACos_
         bindings = <&m_macos_>;
         require-prior-idle-ms = <50>;
+        layers = <0>;
       };
 
       c_d_macos_ {
@@ -396,6 +433,7 @@
         key-positions = <25 27 39 45>; // -D MACos_
         bindings = <&m_d_macos_>;
         require-prior-idle-ms = <50>;
+        layers = <0>;
       };
 
       c_void {
@@ -403,6 +441,7 @@
         key-positions = <40 20 21>; // VOId
         bindings = <&m_void>;
         require-prior-idle-ms = <50>;
+        layers = <0>;
       };
 
       c_Future {
@@ -410,6 +449,7 @@
         key-positions = <28 16 19>; // FUtuRe
         bindings = <&m_Future>;
         require-prior-idle-ms = <50>;
+        layers = <0>;
       };
 
       c_int {
@@ -417,6 +457,7 @@
         key-positions = <17 20 44>; // INT
         bindings = <&m_int>;
         require-prior-idle-ms = <50>;
+        layers = <0>;
       };
 
       c_String {
@@ -424,6 +465,7 @@
         key-positions = <16 17 26>; // STRing
         bindings = <&m_String>;
         require-prior-idle-ms = <50>;
+        layers = <0>;
       };
 
       c_double {
@@ -431,6 +473,7 @@
         key-positions = <27 19 21>; // DOUble
         bindings = <&m_double>;
         require-prior-idle-ms = <50>;
+        layers = <0>;
       };
 
       c_Widget {
@@ -438,6 +481,7 @@
         key-positions = <14 20 27 29>; // WIDGet
         bindings = <&m_Widget>;
         require-prior-idle-ms = <50>;
+        layers = <0>;
       };
 
       c_build {
@@ -445,6 +489,7 @@
         key-positions = <41 19 20 33 27>; // BUILD
         bindings = <&m_build>;
         require-prior-idle-ms = <50>;
+        layers = <0>;
       };
     };
 };
