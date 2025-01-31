@@ -12,9 +12,10 @@
 #include <dt-bindings/zmk/outputs.h>
 
 #define DEFAULT 0
-#define LOWER  1
-#define RAISE  2
-#define ADJUST 3
+#define GAMING  1
+#define LOWER  2
+#define RAISE  3
+#define ADJUST 4
 
 /* Uncomment this block if using RGB
 &led_strip {
@@ -49,22 +50,22 @@
       >;
     };
 
-    // gaming_layer {
-    // // -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    // // |               |               |               |               |               |               |                           |               |               |               |               |               |               |
-    // // |  ESC          |               |               |               |               |               |                           |               |               |               |               |               |               |
-    // // |  TAB          |               |               |               |               |               |                           |               |               |               |               |               |               |
-    // // | LSHIFT        |               |               |               |               |               |               |           |               |               |               |               |               |  LSHIFT       |
-    // // | LCTRL         |               |               |               |               |               |   BACKSPACE   |   ENTER   |               |               |               |               |               |  RCTRL        |
-    // // -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    //   bindings = <    
-    //     &trans          &trans          &trans          &trans          &trans          &trans                                      &trans          &trans          &trans          &trans          &trans          &trans
-    //     &kp ESC         &trans          &trans          &trans          &trans          &trans                                      &trans          &trans          &trans          &trans          &trans          &trans
-    //     &kp TAB         &trans          &trans          &trans          &trans          &trans                                      &trans          &trans          &trans          &trans          &trans          &trans
-    //     &kp LSHIFT      &trans          &trans          &trans          &trans          &trans          &trans          &trans      &trans          &trans          &trans          &trans          &trans          &kp RSHIFT
-    //     &kp LCTRL       &trans          &trans          &trans          &trans          &trans          &kp BSPC        &kp RET     &trans          &trans          &trans          &trans          &trans          &kp RCTRL
-    //   >;
-    // };
+    gaming_layer {
+    // -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    // |               |               |               |               |               |               |                           |               |               |               |               |               |               |
+    // |  ESC          |               |               |               |               |               |                           |               |               |               |               |               |               |
+    // |  TAB          |               |               |               |               |               |                           |               |               |               |               |               |               |
+    // | LSHIFT        |               |               |               |               |               |               |           |               |               |               |               |               |  LSHIFT       |
+    // | LCTRL         |               |               |               |               |               |   BACKSPACE   |   ENTER   |               |               |               |               |               |  RCTRL        |
+    // -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      bindings = <    
+        &trans          &trans          &trans          &trans          &trans          &trans                                      &trans          &trans          &trans          &trans          &trans          &trans
+        &kp ESC         &trans          &trans          &trans          &trans          &trans                                      &trans          &trans          &trans          &trans          &trans          &trans
+        &kp TAB         &trans          &trans          &trans          &trans          &trans                                      &trans          &trans          &trans          &trans          &trans          &trans
+        &kp LSHIFT      &trans          &trans          &trans          &trans          &trans          &trans          &trans      &trans          &trans          &trans          &trans          &trans          &kp RSHIFT
+        &kp LCTRL       &trans          &trans          &trans          &trans          &trans          &kp BSPC        &kp RET     &trans          &trans          &trans          &trans          &trans          &kp RCTRL
+      >;
+    };
 
     lower_layer {
     // -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -79,7 +80,7 @@
         &none           &kp N1          &kp N2          &kp N3          &kp N4          &kp N5                                      &kp N6          &kp N7          &kp N8          &kp N9          &kp N0          &kp MINUS
         &none           &none           &kp LEFT        &kp UP          &kp DOWN        &kp RIGHT                                   &kp LS(N6)      &kp LS(N7)      &kp LS(N8)      &kp LS(N9)      &kp LS(N0)      &kp LS(MINUS)
         &none           &none           &none           &kp PGUP        &kp PGDN        &none           &none           &none       &kp LA(N6)      &kp LA(N7)      &kp LA(N8)      &kp LA(N9)      &kp LA(N0)      &kp LS(NUHS)
-        &none           &none           &none           &none           &none           &none           &none           &none       &none           &none           &none           &none           &none           &none
+        &none           &none           &none           &none           &none           &none           &tog GAMING     &none       &none           &none           &none           &none           &none           &none
       >;
     };
 
@@ -111,7 +112,7 @@
       bindings = <
         &bt BT_CLR      &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_SEL 3    &bt BT_SEL 4                                &none           &none           &none           &none           &none           &ext_power EP_TOG
         &none           &none           &none           &none           &none           &none                                       &none           &none           &none           &none           &none           &none
-        &none           &none           &none           &none           &none           &none                                       &none           &none           &none           &none           &none           &none
+        &none           &none           &none           &none           &none           &tog GAMING                                 &none           &none           &none           &none           &none           &none
         &none           &none           &none           &none           &none           &none           &none           &none       &none           &none           &none           &none           &none           &none
         &none           &none           &none           &none           &none           &none           &none           &none       &none           &none           &none           &none           &none           &none
       >;
@@ -606,6 +607,12 @@
           wait-ms = <10>;
           tap-ms = <10>;
           bindings = <&kp A &kp W &kp A &kp I &kp T &kp SPACE>;
+      )
+
+      ZMK_MACRO(m_gametogg,
+          wait-ms = <10>;
+          tap-ms = <10>;
+          bindings = <&tog GAMING>;
       )
     };
 };
