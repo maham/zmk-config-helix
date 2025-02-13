@@ -63,7 +63,7 @@
         &kp TAB         &trans          &trans          &trans          &trans          &trans                                      &trans          &trans          &trans          &trans          &trans          &trans
         &kp LALT        &trans          &trans          &trans          &trans          &trans                                      &trans          &trans          &trans          &trans          &trans          &trans
         &kp LSHIFT      &trans          &trans          &trans          &trans          &trans          &trans          &trans      &trans          &trans          &trans          &trans          &trans          &kp RSHIFT
-        &kp LCTRL       &trans          &trans          &trans          &trans          &trans          &kp BSPC        &kp RET     &trans          &trans          &trans          &trans          &kp LALT        &kp RCTRL
+        &kp LCTRL       &trans          &trans          &trans          &trans          &trans          &kp BSPC        &kp RET     &trans          &trans          &trans          &trans          &kp RALT        &kp RCTRL
       >;
     };
 
@@ -79,7 +79,7 @@
         &none           &kp F1          &kp F2          &kp F3          &kp F4          &kp F5                                      &kp F6          &kp F7          &kp F8          &kp F9          &kp F10         &none
         &none           &none           &none           &none           &none           &none                                       &none           &none           &none           &none           &none           &kp MINUS
         &none           &none           &kp LEFT        &kp UP          &kp DOWN        &kp RIGHT                                   &kp LS(N6)      &kp LS(N7)      &kp LS(N8)      &kp LS(N9)      &kp LS(N0)      &kp LS(MINUS)
-        &none           &none           &none           &kp PGUP        &kp PGDN        &none           &none           &none       &kp LA(N6)      &kp LA(N7)      &kp LA(N8)      &kp LA(N9)      &kp LA(N0)      &kp LS(NUHS)
+        &none           &none           &none           &kp PGUP        &kp PGDN        &none           &none           &none       &kp RA(N6)      &kp RA(N7)      &kp RA(N8)      &kp RA(N9)      &kp RA(N0)      &kp LS(NUHS)
         &none           &none           &none           &none           &none           &none           &tog GAMING     &none       &none           &none           &none           &none           &none           &none
       >;
     };
@@ -96,7 +96,7 @@
         &none           &kp F1          &kp F2          &kp F3          &kp F4          &kp F5                                      &kp F6          &kp F7          &kp F8          &kp F9          &kp F10         &none
         &none           &none           &none           &none           &none           &none                                       &none           &none           &none           &none           &none           &none
         &none           &kp LS(N1)      &kp LS(N2)      &kp LS(N3)      &kp LS(N4)      &kp LS(N5)                                  &kp LEFT        &kp DOWN        &kp UP          &kp RIGHT       &none           &none
-        &none           &kp LA(N1)      &kp LA(N2)      &kp LA(N3)      &kp LA(N4)      &kp LA(N5)      &none           &none       &none           &kp PG_DN       &kp PG_DN       &none           &none           &none
+        &none           &kp RA(N1)      &kp RA(N2)      &kp RA(N3)      &kp RA(N4)      &kp RA(N5)      &none           &none       &none           &kp PG_DN       &kp PG_DN       &none           &none           &none
         &none           &none           &none           &none           &none           &none           &none           &none       &none           &none           &none           &none           &none           &none
       >;
     };
@@ -239,7 +239,7 @@
       c_lbracket {
         timeout-ms = <30>;
         key-positions = <14 15>; // Q + W
-        bindings = <&kp LA(N8)>;
+        bindings = <&kp RA(N8)>;
         require-prior-idle-ms = <50>;
         layers = <0>;
       };
@@ -247,7 +247,7 @@
       c_rbracket {
         timeout-ms = <30>;
         key-positions = <20 21>; // I + O
-        bindings = <&kp LA(N9)>;
+        bindings = <&kp RA(N9)>;
         require-prior-idle-ms = <50>;
         layers = <0>;
       };
@@ -255,7 +255,7 @@
       c_lbrace {
         timeout-ms = <30>;
         key-positions = <14 15 16>; // W + E + R
-        bindings = <&kp LS(LA(N8))>;
+        bindings = <&kp LS(RA(N8))>;
         require-prior-idle-ms = <50>;
         layers = <0>;
       };
@@ -263,7 +263,7 @@
       c_rbrace {
         timeout-ms = <30>;
         key-positions = <19 20 21>; // U + I + O
-        bindings = <&kp LS(LA(N9))>;
+        bindings = <&kp LS(RA(N9))>;
         require-prior-idle-ms = <50>;
         layers = <0>;
       };
@@ -505,7 +505,7 @@
       ZMK_MACRO(m_tild,
           wait-ms = <10>;
           tap-ms = <10>;
-          bindings = <&kp LA(RBKT) &kp SPACE>;
+          bindings = <&kp RA(RBKT) &kp SPACE>;
       )
 
       ZMK_MACRO(m_equal,
