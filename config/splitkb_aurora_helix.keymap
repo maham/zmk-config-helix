@@ -292,10 +292,26 @@
         layers = <0>;
       };
 
+      c_backtick {
+        timeout-ms = <30>;
+        key-positions = <28 29>;
+        bindings = <&m_backtick>;
+        require-prior-idle-ms = <50>;
+        layers = <0>;
+      };
+
       c_tild {
         timeout-ms = <30>;
         key-positions = <44 45>; // N + M
         bindings = <&m_tild>;
+        require-prior-idle-ms = <50>;
+        layers = <0>;
+      };
+
+      c_grave {
+        timeout-ms = <30>;
+        key-positions = <30 31>;
+        bindings = <&m_grave>;
         require-prior-idle-ms = <50>;
         layers = <0>;
       };
@@ -506,6 +522,18 @@
           wait-ms = <10>;
           tap-ms = <10>;
           bindings = <&kp RA(RBKT) &kp SPACE>;
+      )
+
+      ZMK_MACRO(m_backtick,
+          wait-ms = <10>;
+          tap-ms = <10>;
+          bindings = <&kp LS(EQUAL) &kp SPACE>;
+      )
+
+      ZMK_MACRO(m_grave,
+          wait-ms = <10>;
+          tap-ms = <10>;
+          bindings = <&kp EQUAL &kp SPACE>;
       )
 
       ZMK_MACRO(m_equal,
