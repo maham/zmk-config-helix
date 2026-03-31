@@ -11,6 +11,16 @@
 #include <dt-bindings/zmk/ext_power.h>
 #include <dt-bindings/zmk/outputs.h>
 
+/*
+#define DEFAULT 0
+#define MAC 1
+#define LINUX 2
+#define GAMING  3
+#define LOWER  4
+#define RAISE  5
+#define ADJUST 6
+*/
+
 #define DEFAULT 0
 #define GAMING  1
 #define LOWER  2
@@ -41,7 +51,7 @@
     // |               |   Z           |   X           |   C           |   V           |   B           |               |           |   N           |   M           |   ,           |   .           |   -           |   '           |
     // | LSHIFT        |               |               | ADJUST        | LOWER         | SPACE         |               |           | SPACE         |  RAISE        |  ADJUST       |               |               |  RSHIFT       |
     // -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-      bindings = <    
+      bindings = <
         &none           &kp N1          &kp N2          &kp N3          &kp N4          &kp N5                                      &kp N6          &kp N7          &kp N8          &kp N9          &kp N0          &soft_off
         &none           &kp Q           &kp W           &kp E           &kp R           &kp T                                       &kp Y           &kp U           &kp I           &kp O           &kp P           &kp LBKT
         &none           &kp A           &kp S           &kp D           &kp F           &kp G                                       &kp H           &kp J           &kp K           &kp L           &kp SEMI        &kp SQT
@@ -58,7 +68,7 @@
     // | LSHIFT        |               |               |               |               |               |               |           |               |               |               |               |               |  LSHIFT       |
     // | LCTRL         |               |               |               |               |               |   BACKSPACE   |   ENTER   |               |               |               |               |               |  RCTRL        |
     // -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-      bindings = <    
+      bindings = <
         &kp ESC         &trans          &trans          &trans          &trans          &trans                                      &trans          &trans          &trans          &trans          &trans          &trans
         &kp TAB         &trans          &trans          &trans          &trans          &trans                                      &trans          &trans          &trans          &trans          &trans          &trans
         &kp LALT        &trans          &trans          &trans          &trans          &trans                                      &trans          &trans          &trans          &trans          &trans          &trans
@@ -72,14 +82,14 @@
     // |               |               |               |               |               |               |                           |               |               |               |               |               |               |
     // |               |   1           |   2           |   3           |   4           |   5           |                           |   6           |   7           |   8           |   9           |   0           |   +           |
     // |               |               |  LEFT         |   UP          |  DOWN         |  RIGHT        |                           |   &           |   /           |   (           |   )           |   =           |   ?           |
-    // |               |               |               |  PG UP        | PG DOWN       |               |               |           |   §           |   |           |   [           |   ]           |   ≈           |   *           |
+    // |               |               |               |  PG UP        | PG DOWN       |               |               |           |   ¥           |   {           |   [           |   ]           |   }           |   *           |
     // |               |               |               |               |               |               |               |           |               |               |               |               |               |               |
     // -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
       bindings = <
         &none           &kp F1          &kp F2          &kp F3          &kp F4          &kp F5                                      &kp F6          &kp F7          &kp F8          &kp F9          &kp F10         &none
         &none           &none           &none           &none           &none           &none                                       &none           &none           &none           &none           &none           &kp MINUS
         &none           &none           &kp LEFT        &kp UP          &kp DOWN        &kp RIGHT                                   &kp LS(N6)      &kp LS(N7)      &kp LS(N8)      &kp LS(N9)      &kp LS(N0)      &kp LS(MINUS)
-        &none           &none           &none           &kp PGUP        &kp PGDN        &none           &none           &none       &kp RA(N6)      &kp RA(N7)      &kp RA(N8)      &kp RA(N9)      &kp RA(N0)      &kp LS(NUHS)
+        &none           &none           &none           &kp PGUP        &kp PGDN        &none           &none           &none       &kp RA(MINUS)   &kp RA(NUBS)    &kp LS(N7)      &kp RA(N9)      &kp RA(N0)      &kp LS(NUHS)
         &none           &none           &none           &none           &none           &none           &tog GAMING     &none       &none           &none           &none           &none           &none           &none
       >;
     };
@@ -89,7 +99,7 @@
     // |               |               |               |               |               |               |                           |               |               |               |               |               |               |
     // |               |   1           |   2           |   3           |   4           |   5           |                           |   6           |   7           |   8           |   9           |   0           |               |
     // |               |   !           |   "           |   #           |   €           |   %           |                           |  LEFT         |  DOWN         |   UP          |  RIGHT        |               |               |
-    // |               |   ©           |   @           |   £           |   $           |   ∞           |               |           |               | PG DOWN       |  PG UP        |               |               |               |
+    // |               |   ¡           |   @           |   £           |   $           |   €           |               |           |               | PG DN         |  PG UP        |               |               |               |
     // |               |               |               |               |               |               |               |           |               |               |               |               |               |               |
     // -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
       bindings = <
@@ -100,7 +110,7 @@
         &none           &none           &none           &none           &none           &none           &none           &none       &none           &none           &none           &none           &none           &none
       >;
     };
-    
+
     adjust_layer {
     // -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     // | BT CLR        |  BT 1         |  BT 2         |  BT 3         |  BT 4         |  BT 5         |                           |               |               |               |               |               |  EP TOGGLE    |
@@ -118,6 +128,7 @@
       >;
     };
   };
+
 };
 
 / {
@@ -223,23 +234,23 @@
       c_lparen {
         timeout-ms = <30>;
         key-positions = <15 16>; // E + R
-        bindings = <&kp LS(N8)>;
+        bindings = <&kp LS(N8)>; // (
         require-prior-idle-ms = <50>;
         layers = <0>;
       };
 
       c_rparen {
         timeout-ms = <30>;
-        key-positions = <19 20>; // U + I 
-        bindings = <&kp LS(N9)>;
+        key-positions = <19 20>; // U + I
+        bindings = <&kp LS(N9)>; // )
         require-prior-idle-ms = <50>;
         layers = <0>;
       };
 
       c_lbracket {
         timeout-ms = <30>;
-        key-positions = <14 15>; // Q + W
-        bindings = <&kp RA(N8)>;
+        key-positions = <14 15>; // W + E
+        bindings = <&kp RA(N8)>; // [
         require-prior-idle-ms = <50>;
         layers = <0>;
       };
@@ -247,7 +258,7 @@
       c_rbracket {
         timeout-ms = <30>;
         key-positions = <20 21>; // I + O
-        bindings = <&kp RA(N9)>;
+        bindings = <&kp RA(N9)>; // ]
         require-prior-idle-ms = <50>;
         layers = <0>;
       };
@@ -255,7 +266,7 @@
       c_lbrace {
         timeout-ms = <30>;
         key-positions = <14 15 16>; // W + E + R
-        bindings = <&kp LS(RA(N8))>;
+        bindings = <&kp RA(N7)>;
         require-prior-idle-ms = <50>;
         layers = <0>;
       };
@@ -263,15 +274,16 @@
       c_rbrace {
         timeout-ms = <30>;
         key-positions = <19 20 21>; // U + I + O
-        bindings = <&kp LS(RA(N9))>;
+        bindings = <&kp RA(N9)>;
         require-prior-idle-ms = <50>;
         layers = <0>;
       };
 
+
       c_less {
         timeout-ms = <30>;
         key-positions = <14 16>; // W + R
-        bindings = <&kp GRAVE>;
+        bindings = <&kp NUBS>;
         require-prior-idle-ms = <50>;
         layers = <0>;
       };
@@ -279,7 +291,7 @@
       c_greater {
         timeout-ms = <30>;
         key-positions = <19 21>; // U + O
-        bindings = <&kp LS(GRAVE)>;
+        bindings = <&kp LS(NUBS)>;
         require-prior-idle-ms = <50>;
         layers = <0>;
       };
@@ -291,6 +303,7 @@
         require-prior-idle-ms = <50>;
         layers = <0>;
       };
+
 
       c_backtick {
         timeout-ms = <30>;

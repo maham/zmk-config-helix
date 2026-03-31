@@ -1,0 +1,8 @@
+/.west
+/modules
+/zephyr
+/zmk
+/optional/modules/lib
+/zmk-locales
+
+.zmk/
